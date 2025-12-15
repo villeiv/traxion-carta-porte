@@ -1,6 +1,7 @@
 import Breadcrumb from "@/components/app-ui/Breadcrumb";
 import CartaPorteControlFeature from "@/features/CartaPorte/CartaPorteControlFeature";
 import { Suspense } from "react";
+import {InlineLoader} from "@traxion-global/design-system/react";
 
 export default function CartaPortePage() {
     return (
@@ -11,7 +12,7 @@ export default function CartaPortePage() {
                 {label: "Monitoreo de Cartas Porte"}
             ]}/>
             {/* Main feature */}
-            <Suspense fallback={null}>
+            <Suspense fallback={<InlineLoader />}>
                 <CartaPorteControlFeature />
             </Suspense>
         </>
