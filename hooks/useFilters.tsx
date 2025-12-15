@@ -56,7 +56,7 @@ export function useFilters() {
     return {
         filters: searchParams,
         updateFilter,
-        updateFilterDebounced, // 👈 nueva API, no rompe nada
+        updateFilterDebounced,
         clearFilters,
         areFiltersActive,
     };
