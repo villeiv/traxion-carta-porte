@@ -1,12 +1,20 @@
 import {ChevronRight, Home} from "lucide-react";
 import Link from "next/link";
 
-export default function Breadcrumb({ items }) {
+type BreadcrumbItem = {
+    label: string
+    href?: string
+}
+
+type BreadcrumbProps = {
+    items: BreadcrumbItem[]
+}
+
+export default function Breadcrumb({ items }: BreadcrumbProps) {
     return (
         <nav className="flex pl-2 sm:pl-6 overflow-hidden h-10 mb-2" aria-label="Breadcrumb">
             <ol className="inline-flex items-center space-x-1 font-medium text-xs sm:text-sm md:space-x-3 w-full">
                 {items.map((item, index) => {
-                    const hasLink = item.href && item.href !== "";
                     const isFirst = index === 0;
                     const isLast = index === items.length - 1;
 
@@ -17,11 +25,13 @@ export default function Breadcrumb({ items }) {
                         isLast ? "min-w-[120px]" : ""
                     }`;
 
-                    return hasLink ? (
+                    const href = item.href?.trim();
+
+                    return href ? (
                         <li key={`b-item-${index}`} className="inline-flex items-center min-w-0">
                             <Icon className="w-4 h-4 mr-2 shrink-0 text-muted-foreground" />
                             <Link
-                                href={item.href}
+                                href={href}
                                 className={`text-muted-foreground hover:text-foreground underline underline-offset-4 decoration-muted-foreground/30 ${textClasses}`}
                             >
                                 {item.label}

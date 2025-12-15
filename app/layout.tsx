@@ -19,7 +19,7 @@ export default function RootLayout({children}: Readonly<{ children: React.ReactN
         {/* TooltipProvider */}
         <TooltipProvider>
             {/* Toaster */}
-            <Toaster richColors position={"top-right"} closeButton={true}/>
+            <Toaster position={"top-right"} closeButton={true}/>
             <LayoutApp>
                 <MainHeader/>
                 <LayoutMain>{children}</LayoutMain>

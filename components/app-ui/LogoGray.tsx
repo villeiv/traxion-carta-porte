@@ -1,4 +1,4 @@
-export default function LogoGray({className}) {
+export default function LogoGray({className}:{ className:string}) {
     return <div className={className}>
         <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1132.9999999999998 411">
             <g id="Layer 1">
