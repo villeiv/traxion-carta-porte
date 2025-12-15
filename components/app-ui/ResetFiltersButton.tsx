@@ -6,10 +6,15 @@ function ResetFiltersButton() {
     //vos renderizas un botón para limpiar los filtros si hay alguno activo
     const { areFiltersActive, clearFilters } = useFilters();
 
+    function resetClick(){
+        console.log("resetClick")
+        clearFilters();
+    }
+
     if (!areFiltersActive()) return null;
 
     return (
-        <Button variant={"outline"} onClick={clearFilters}><X/>Limpiar</Button>
+        <Button variant={"secondary"} size={"lg"} onClick={resetClick}><X/>Limpiar</Button>
     );
 }
 

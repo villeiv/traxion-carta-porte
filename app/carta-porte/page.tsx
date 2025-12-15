@@ -7,7 +7,7 @@ export default function CartaPortePage() {
             {/* Breadcrumb */}
             <Breadcrumb items={[
                 {label: "Inicio", href: "/"},
-                {label: "Centro de control de viajes"}
+                {label: "Monitoreo de Cartas Porte"}
             ]}/>
             {/* Main feature */}
             <CartaPorteControlFeature />

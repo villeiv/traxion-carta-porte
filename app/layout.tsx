@@ -7,8 +7,8 @@ import MainHeader from "../components/app-ui/MainHeader";
 import MainFooter from "../components/app-ui/MainFooter";
 
 export const metadata: Metadata = {
-    title: 'Traxion – Agencia Aduanal',
-    description: 'Traxion – Agencia Aduanal',
+    title: 'Traxion – Carta Porte',
+    description: 'Traxion – Carta Porte',
     generator: 'Traxion',
 }
 

@@ -8,9 +8,9 @@ type SelectFilterProps = {
 };
 
 export function SelectFilter({ options, value, onChange, placeholder }: SelectFilterProps) {
-    //vos renderizas un select genérico
+    //renderiza un select genérico
     return <Select value={value} onValueChange={onChange}>
-        <SelectTrigger className="w-full bg-white sm:w-[170px] text-secondary sm:text-xs">
+        <SelectTrigger>
             <SelectValue placeholder={placeholder} />
         </SelectTrigger>
         <SelectContent>

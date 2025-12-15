@@ -2,17 +2,30 @@
 
 import CartaPorteFilterFeature from "@/features/CartaPorte/CartaPorteFilterFeature";
 import {useFilters} from "@/hooks/useFilters";
-import useFetch from "@/hooks/useFetch";
+import CartaPorteBoard from "@/features/CartaPorte/components/CartaPorteBoard";
+import initialData from "@/data";
+import useCartaPorteBoard from "@/features/CartaPorte/hooks/useCartaPorteBoard";
 
 function CartaPorteControlFeature() {
     //orquesta los hooks y componentes necesarios para listar y filtrar los pedimentos
-    const {filters} = useFilters();
-    console.log(filters.toString());
-    //const {data, loading, error, reFetch, setData} = useFetch({fetchFn: getCustomsEntries, shouldFetch: true, query:filters.toString()});
+    const { filters, updateFilter } = useFilters();
+    const { columns } = useCartaPorteBoard(initialData, filters);
 
-    return <>
+    function onTripClick(tripId: string, type: "filter" | "log") {
+        switch (type) {
+            case "filter":
+                updateFilter("id", tripId);
+                break;
+            case "log":
+                console.log(`Mostrar log del viaje ${tripId}`);
+                break;
+        }
+    }
+
+    return <div className={"flex flex-col gap-4"}>
         <CartaPorteFilterFeature />
-    </>
+        <CartaPorteBoard columns={columns} onTripClick={onTripClick}/>
+    </div>
 }
 
 export default CartaPorteControlFeature;
