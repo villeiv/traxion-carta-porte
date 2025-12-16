@@ -5,21 +5,22 @@ import StageRequirement from "@/features/CartaPorte/components/StageRequirement"
 export function CartaPorteTrip({trip, onTripClick}) {
     return (
         <TripDetail
-            onLogClick={() => onTripClick?.(trip.id, "log")}
+            onLogClick={() => onTripClick?.(trip.tripId, "log")}
             trigger={
                 <TripPill
-                    key={"pill-" + trip.id}
-                    tripId={trip.id}
-                    date={trip.trip_planned_start_at}
+                    key={"pill-" + trip.tripId}
+                    tripId={trip.tripId}
+                    label={trip.tripName}
+                    date={trip.tripPlannedStartAt}
                     status={trip.status}
                     statusLabel={trip.statusLabel}
-                    onPillClick={() => onTripClick?.(trip.id, "filter")}
+                    onPillClick={() => onTripClick?.(trip.tripName, "filter")}
                 />
             }
         >
             {trip.requirements.map((requirement, index) => (
                 <StageRequirement
-                    key={trip.id + "-req-" + index}
+                    key={trip.tripId + "-req-" + index}
                     fulfillmentStatus={requirement.status}
                 >
                     {requirement.label}

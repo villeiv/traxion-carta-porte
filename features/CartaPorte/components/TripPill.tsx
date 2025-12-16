@@ -1,11 +1,12 @@
 import {Badge} from "@traxion-global/design-system/react";
 
 type TripPillProps = {
-    tripId: string;
+    tripId: number;
+    label: string;
     date?: string;
     status?: "warning" | "error" | "ok" | "pending";
     statusLabel?: string;
-    onPillClick?: (tripId: string, action: "log" | "filter") => void;
+    onPillClick?: (tripId: number, action: "log" | "filter") => void;
 }
 
 const styles = {
@@ -15,10 +16,10 @@ const styles = {
     date: "text-xs font-normal text-muted-foreground"
 };
 
-function TripPill({tripId, status = "ok", statusLabel = "ok", date, onPillClick}: TripPillProps) {
+function TripPill({tripId, label, status = "ok", statusLabel = "ok", date, onPillClick}: TripPillProps) {
     return <div className={styles.container} onClick={_=>onPillClick?.(tripId, "filter")}>
         <div className={styles.leftContainer}>
-            <span className={styles.label}>{tripId}</span>
+            <span className={styles.label}>{label}</span>
             <span className={styles.date}>{date}</span>
         </div>
         {

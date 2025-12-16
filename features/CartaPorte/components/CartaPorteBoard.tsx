@@ -10,14 +10,14 @@ export function CartaPorteBoard({columns, onTripClick}) {
     return (
         <div className={styles.container}>
             {columns.map(column => (
-                <CartaPorteColumn key={"col-" + column.id} title={column.title}>
+                <CartaPorteColumn key={"col-" + column.stage_id} title={column.title}>
                     {
                         column.trips.length === 0 ?
                             <NoDataMessage message={"No hay viajes que coincidan con los filtros aplicados."}/>
                             :
                             column.trips.map(trip => (
                                 <CartaPorteTrip
-                                    key={"trip-" + trip.id}
+                                    key={"trip-" + trip.tripId}
                                     trip={trip}
                                     onTripClick={onTripClick}
                                 />
