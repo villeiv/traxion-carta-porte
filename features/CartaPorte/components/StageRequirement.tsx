@@ -4,7 +4,7 @@ import {cn} from "@traxion-global/design-system";
 const styles = {
     container: "flex items-start gap-2",
     icon: "w-4 h-4 flex-shrink-0",
-    description: "text-xs"
+    description: "text-xs text-card-foreground/80"
 };
 
 function StageRequirement({fulfillmentStatus, children: description}) {

@@ -2,10 +2,11 @@ import {ScrollText} from "lucide-react";
 import {Button, HoverCard, HoverCardContent, HoverCardTrigger, Separator} from "@traxion-global/design-system/react";
 
 const styles = {
-    content: "space-y-2",
-    title: "font-medium text-sm",
-    childrenContainer: "space-y-1",
-    actionsWrapper: "pt-2 flex justify-end"
+    content: "flex flex-col space-y-2.5",
+    title: "font-medium text-sm leading-none",
+    requirementsContainer: "space-y-2",
+    actionsWrapper: "pt-2 flex justify-end",
+    logIcon:"text-muted-foreground"
 };
 
 function TripDetail({trigger, children, onLogClick}) {
@@ -23,9 +24,9 @@ function TripDetail({trigger, children, onLogClick}) {
         >
             <span className={styles.title}>Detalle de estado</span>
             <Separator/>
-            <div className={styles.childrenContainer}>{children}</div>
+            <div className={styles.requirementsContainer}>{children}</div>
             <div className={styles.actionsWrapper}>
-                <Button size={"sm"} variant={"outline"} onClick={onLogClick}><ScrollText/>Log</Button>
+                <Button size={"sm"} variant={"outline"} onClick={onLogClick}><ScrollText className={styles.logIcon}/>Log</Button>
             </div>
         </HoverCardContent>
     </HoverCard>
