@@ -11,7 +11,7 @@ import CartaPorteLog from "@/features/CartaPorte/components/CartaPorteLog";
 import useCartaPorteLog from "@/features/CartaPorte/hooks/useCartaPorteLog";
 
 function CartaPorteControlFeature() {
-    //orquesta los hooks y componentes necesarios para listar y filtrar los pedimentos
+    //orquesta los hooks y componentes necesarios para listar y filtrar las etapas de transporte
     const { filters, updateFilter } = useFilters();
     const { columns } = useCartaPorteBoard(initialData, filters);
     const alerts = useCartaPorteAlerts();
