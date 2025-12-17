@@ -1,10 +1,10 @@
 const initialData = {
     "stages": [
-        {"id": 1, "name": "TMS"},
-        {"id": 2, "name": "MuleSoft"},
-        {"id": 3, "name": "SAP Prod"},
-        {"id": 4, "name": "PAC"},
-        {"id": 5, "name": "SAT"}
+        {"id": "tms", "name": "TMS"},
+        {"id": "mule", "name": "MuleSoft"},
+        {"id": "sap", "name": "SAP Prod"},
+        {"id": "pac", "name": "PAC"},
+        {"id": "sat", "name": "SAT"}
     ],
     "trip_stage_status": [
         {
@@ -17,7 +17,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-08T12:18:00Z",
             "trip_planned_end_at": "2025-12-08T22:00:00Z",
             "trip_actual_end_at": "2025-12-08T21:42:00Z",
-            "stage_id": 1,
+            "stage_id": "tms",
             "status": "ok",
             "status_label": "completado",
             "requirements": [
@@ -42,7 +42,7 @@ const initialData = {
             "trip_actual_start_at": null,
             "trip_planned_end_at": "2025-12-09T23:00:00Z",
             "trip_actual_end_at": null,
-            "stage_id": 1,
+            "stage_id": "tms",
             "status": "warning",
             "status_label": "warning",
             "requirements": [
@@ -67,7 +67,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-10T07:28:00Z",
             "trip_planned_end_at": "2025-12-10T19:30:00Z",
             "trip_actual_end_at": "2025-12-10T19:10:00Z",
-            "stage_id": 1,
+            "stage_id": "tms",
             "status": "ok",
             "status_label": "completado",
             "requirements": [
@@ -92,7 +92,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-11T14:07:00Z",
             "trip_planned_end_at": "2025-12-11T22:00:00Z",
             "trip_actual_end_at": "2025-12-11T21:20:00Z",
-            "stage_id": 1,
+            "stage_id": "tms",
             "status": "ok",
             "status_label": "completado",
             "requirements": [
@@ -117,7 +117,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-12T09:12:00Z",
             "trip_planned_end_at": "2025-12-12T18:00:00Z",
             "trip_actual_end_at": "2025-12-12T17:55:00Z",
-            "stage_id": 1,
+            "stage_id": "tms",
             "status": "ok",
             "status_label": "completado",
             "requirements": [
@@ -143,7 +143,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-09T06:22:00Z",
             "trip_planned_end_at": "2025-12-09T20:00:00Z",
             "trip_actual_end_at": null,
-            "stage_id": 1,
+            "stage_id": "tms",
             "status": "ok",
             "status_label": "completado",
             "requirements": [
@@ -168,7 +168,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-09T06:22:00Z",
             "trip_planned_end_at": "2025-12-09T20:00:00Z",
             "trip_actual_end_at": null,
-            "stage_id": 2,
+            "stage_id": "mule",
             "status": "ok",
             "status_label": "completado",
             "requirements": [
@@ -192,7 +192,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-09T06:22:00Z",
             "trip_planned_end_at": "2025-12-09T20:00:00Z",
             "trip_actual_end_at": null,
-            "stage_id": 3,
+            "stage_id": "sap",
             "status": "ok",
             "status_label": "completado",
             "requirements": [
@@ -216,7 +216,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-09T06:22:00Z",
             "trip_planned_end_at": "2025-12-09T20:00:00Z",
             "trip_actual_end_at": null,
-            "stage_id": 4,
+            "stage_id": "pac",
             "status": "warning",
             "status_label": "warning",
             "requirements": [
@@ -241,7 +241,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-08T08:04:00Z",
             "trip_planned_end_at": "2025-12-08T22:00:00Z",
             "trip_actual_end_at": null,
-            "stage_id": 1,
+            "stage_id": "tms",
             "status": "ok",
             "status_label": "completado",
             "requirements": [
@@ -266,7 +266,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-08T08:04:00Z",
             "trip_planned_end_at": "2025-12-08T22:00:00Z",
             "trip_actual_end_at": null,
-            "stage_id": 2,
+            "stage_id": "mule",
             "status": "ok",
             "status_label": "completado",
             "requirements": [
@@ -290,7 +290,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-08T08:04:00Z",
             "trip_planned_end_at": "2025-12-08T22:00:00Z",
             "trip_actual_end_at": null,
-            "stage_id": 3,
+            "stage_id": "sap",
             "status": "ok",
             "status_label": "completado",
             "requirements": [
@@ -314,7 +314,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-08T08:04:00Z",
             "trip_planned_end_at": "2025-12-08T22:00:00Z",
             "trip_actual_end_at": null,
-            "stage_id": 4,
+            "stage_id": "pac",
             "status": "error",
             "status_label": "error",
             "requirements": [
@@ -339,7 +339,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-09T15:25:00Z",
             "trip_planned_end_at": "2025-12-10T01:00:00Z",
             "trip_actual_end_at": null,
-            "stage_id": 1,
+            "stage_id": "tms",
             "status": "ok",
             "status_label": "completado",
             "requirements": [
@@ -364,7 +364,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-09T15:25:00Z",
             "trip_planned_end_at": "2025-12-10T01:00:00Z",
             "trip_actual_end_at": null,
-            "stage_id": 2,
+            "stage_id": "mule",
             "status": "ok",
             "status_label": "completado",
             "requirements": [
@@ -388,7 +388,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-09T15:25:00Z",
             "trip_planned_end_at": "2025-12-10T01:00:00Z",
             "trip_actual_end_at": null,
-            "stage_id": 3,
+            "stage_id": "sap",
             "status": "ok",
             "status_label": "completado",
             "requirements": [
@@ -412,7 +412,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-09T15:25:00Z",
             "trip_planned_end_at": "2025-12-10T01:00:00Z",
             "trip_actual_end_at": null,
-            "stage_id": 4,
+            "stage_id": "pac",
             "status": "pending",
             "status_label": "pending",
             "requirements": [
@@ -437,7 +437,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-11T09:00:00Z",
             "trip_planned_end_at": "2025-12-12T01:00:00Z",
             "trip_actual_end_at": "2025-12-12T00:35:00Z",
-            "stage_id": 1,
+            "stage_id": "tms",
             "status": "ok",
             "status_label": "completado",
             "requirements": [
@@ -462,7 +462,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-11T09:00:00Z",
             "trip_planned_end_at": "2025-12-12T01:00:00Z",
             "trip_actual_end_at": "2025-12-12T00:35:00Z",
-            "stage_id": 2,
+            "stage_id": "mule",
             "status": "ok",
             "status_label": "completado",
             "requirements": [
@@ -486,7 +486,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-11T09:00:00Z",
             "trip_planned_end_at": "2025-12-12T01:00:00Z",
             "trip_actual_end_at": "2025-12-12T00:35:00Z",
-            "stage_id": 3,
+            "stage_id": "sap",
             "status": "ok",
             "status_label": "completado",
             "requirements": [
@@ -510,7 +510,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-11T09:00:00Z",
             "trip_planned_end_at": "2025-12-12T01:00:00Z",
             "trip_actual_end_at": "2025-12-12T00:35:00Z",
-            "stage_id": 4,
+            "stage_id": "pac",
             "status": "ok",
             "status_label": "completado",
             "requirements": [
@@ -534,7 +534,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-11T09:00:00Z",
             "trip_planned_end_at": "2025-12-12T01:00:00Z",
             "trip_actual_end_at": "2025-12-12T00:35:00Z",
-            "stage_id": 5,
+            "stage_id": "sat",
             "status": "ok",
             "status_label": "completado",
             "requirements": [
@@ -559,7 +559,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-08T16:10:00Z",
             "trip_planned_end_at": "2025-12-09T02:00:00Z",
             "trip_actual_end_at": "2025-12-09T01:40:00Z",
-            "stage_id": 1,
+            "stage_id": "tms",
             "status": "ok",
             "status_label": "completado",
             "requirements": [
@@ -584,7 +584,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-08T16:10:00Z",
             "trip_planned_end_at": "2025-12-09T02:00:00Z",
             "trip_actual_end_at": "2025-12-09T01:40:00Z",
-            "stage_id": 2,
+            "stage_id": "mule",
             "status": "ok",
             "status_label": "completado",
             "requirements": [
@@ -608,7 +608,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-08T16:10:00Z",
             "trip_planned_end_at": "2025-12-09T02:00:00Z",
             "trip_actual_end_at": "2025-12-09T01:40:00Z",
-            "stage_id": 3,
+            "stage_id": "sap",
             "status": "ok",
             "status_label": "completado",
             "requirements": [
@@ -632,7 +632,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-08T16:10:00Z",
             "trip_planned_end_at": "2025-12-09T02:00:00Z",
             "trip_actual_end_at": "2025-12-09T01:40:00Z",
-            "stage_id": 4,
+            "stage_id": "pac",
             "status": "ok",
             "status_label": "completado",
             "requirements": [
@@ -656,7 +656,7 @@ const initialData = {
             "trip_actual_start_at": "2025-12-08T16:10:00Z",
             "trip_planned_end_at": "2025-12-09T02:00:00Z",
             "trip_actual_end_at": "2025-12-09T01:40:00Z",
-            "stage_id": 5,
+            "stage_id": "sat",
             "status": "ok",
             "status_label": "completado",
             "requirements": [
