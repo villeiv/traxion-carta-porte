@@ -6,7 +6,7 @@ const initialData = {
         {"id": "pac", "name": "PAC"},
         {"id": "sat", "name": "SAT"}
     ],
-    "trip_stage_status": [
+    "trip_stages": [
         {
             "id": 1,
             "trip_id": 1,
@@ -14,23 +14,15 @@ const initialData = {
             "client": "FAST",
             "company": "Egoba",
             "trip_planned_start_at": "2025-12-08T12:00:00Z",
-            "trip_actual_start_at": "2025-12-08T12:18:00Z",
-            "trip_planned_end_at": "2025-12-08T22:00:00Z",
-            "trip_actual_end_at": "2025-12-08T21:42:00Z",
             "stage_id": "tms",
-            "status": "ok",
-            "status_label": "completado",
+            "status": "completed",
             "requirements": [
-                {"label": "Validación de licencia del conductor", "status": "completed"},
-                {"label": "Validación de documentación de la unidad", "status": "completed"},
-                {"label": "Verificación de datos del viaje (origen/destino)", "status": "completed"},
-                {"label": "Confirmación de disponibilidad de operador", "status": "completed"},
-                {"label": "Registro de unidad en plataforma TMS", "status": "completed"}
-            ],
-            "created_at": "2025-12-08T11:10:00Z",
-            "updated_at": "2025-12-08T11:34:00Z",
-            "completed_at": "2025-12-08T11:34:00Z",
-            "due_at": "2025-12-08T12:30:00Z"
+                { "label": "Validación de licencia del conductor", "status": "fulfilled" },
+                { "label": "Validación de documentación de la unidad", "status": "fulfilled" },
+                { "label": "Verificación de datos del viaje (origen/destino)", "status": "fulfilled" },
+                { "label": "Confirmación de disponibilidad de operador", "status": "fulfilled" },
+                { "label": "Registro de unidad en plataforma TMS", "status": "fulfilled" }
+            ]
         },
         {
             "id": 2,
@@ -39,23 +31,15 @@ const initialData = {
             "client": "FAST",
             "company": "Egoba",
             "trip_planned_start_at": "2025-12-09T13:00:00Z",
-            "trip_actual_start_at": null,
-            "trip_planned_end_at": "2025-12-09T23:00:00Z",
-            "trip_actual_end_at": null,
             "stage_id": "tms",
-            "status": "warning",
-            "status_label": "warning",
+            "status": "blocked",
             "requirements": [
-                {"label": "Validación de licencia del conductor vencida", "status": "error"},
-                {"label": "Validación de documentación de la unidad", "status": "completed"},
-                {"label": "Verificación de datos del viaje (origen/destino)", "status": "completed"},
-                {"label": "Confirmación de disponibilidad de operador", "status": "completed"},
-                {"label": "Registro de unidad en plataforma TMS", "status": "completed"}
-            ],
-            "created_at": "2025-12-09T10:25:00Z",
-            "updated_at": "2025-12-10T16:05:00Z",
-            "completed_at": null,
-            "due_at": "2025-12-09T14:00:00Z"
+                { "label": "Validación de licencia del conductor vencida", "status": "failed" },
+                { "label": "Validación de documentación de la unidad", "status": "fulfilled" },
+                { "label": "Verificación de datos del viaje (origen/destino)", "status": "fulfilled" },
+                { "label": "Confirmación de disponibilidad de operador", "status": "fulfilled" },
+                { "label": "Registro de unidad en plataforma TMS", "status": "fulfilled" }
+            ]
         },
         {
             "id": 3,
@@ -64,23 +48,15 @@ const initialData = {
             "client": "Amazon",
             "company": "MyM",
             "trip_planned_start_at": "2025-12-10T07:30:00Z",
-            "trip_actual_start_at": "2025-12-10T07:28:00Z",
-            "trip_planned_end_at": "2025-12-10T19:30:00Z",
-            "trip_actual_end_at": "2025-12-10T19:10:00Z",
             "stage_id": "tms",
-            "status": "ok",
-            "status_label": "completado",
+            "status": "completed",
             "requirements": [
-                {"label": "Validación de licencia del conductor", "status": "completed"},
-                {"label": "Validación de documentación de la unidad", "status": "completed"},
-                {"label": "Verificación de datos del viaje (origen/destino)", "status": "completed"},
-                {"label": "Confirmación de disponibilidad de operador", "status": "completed"},
-                {"label": "Registro de unidad en plataforma TMS", "status": "completed"}
-            ],
-            "created_at": "2025-12-10T06:40:00Z",
-            "updated_at": "2025-12-10T07:05:00Z",
-            "completed_at": "2025-12-10T07:05:00Z",
-            "due_at": "2025-12-10T08:00:00Z"
+                { "label": "Validación de licencia del conductor", "status": "fulfilled" },
+                { "label": "Validación de documentación de la unidad", "status": "fulfilled" },
+                { "label": "Verificación de datos del viaje (origen/destino)", "status": "fulfilled" },
+                { "label": "Confirmación de disponibilidad de operador", "status": "fulfilled" },
+                { "label": "Registro de unidad en plataforma TMS", "status": "fulfilled" }
+            ]
         },
         {
             "id": 4,
@@ -89,23 +65,15 @@ const initialData = {
             "client": "Roche",
             "company": "Medistik",
             "trip_planned_start_at": "2025-12-11T14:00:00Z",
-            "trip_actual_start_at": "2025-12-11T14:07:00Z",
-            "trip_planned_end_at": "2025-12-11T22:00:00Z",
-            "trip_actual_end_at": "2025-12-11T21:20:00Z",
             "stage_id": "tms",
-            "status": "ok",
-            "status_label": "completado",
+            "status": "completed",
             "requirements": [
-                {"label": "Validación de licencia del conductor", "status": "completed"},
-                {"label": "Validación de documentación de la unidad", "status": "completed"},
-                {"label": "Verificación de datos del viaje (origen/destino)", "status": "completed"},
-                {"label": "Confirmación de disponibilidad de operador", "status": "completed"},
-                {"label": "Registro de unidad en plataforma TMS", "status": "completed"}
-            ],
-            "created_at": "2025-12-11T12:35:00Z",
-            "updated_at": "2025-12-11T13:02:00Z",
-            "completed_at": "2025-12-11T13:02:00Z",
-            "due_at": "2025-12-11T15:00:00Z"
+                { "label": "Validación de licencia del conductor", "status": "fulfilled" },
+                { "label": "Validación de documentación de la unidad", "status": "fulfilled" },
+                { "label": "Verificación de datos del viaje (origen/destino)", "status": "fulfilled" },
+                { "label": "Confirmación de disponibilidad de operador", "status": "fulfilled" },
+                { "label": "Registro de unidad en plataforma TMS", "status": "fulfilled" }
+            ]
         },
         {
             "id": 5,
@@ -114,25 +82,16 @@ const initialData = {
             "client": "Roche",
             "company": "Medistik",
             "trip_planned_start_at": "2025-12-12T09:00:00Z",
-            "trip_actual_start_at": "2025-12-12T09:12:00Z",
-            "trip_planned_end_at": "2025-12-12T18:00:00Z",
-            "trip_actual_end_at": "2025-12-12T17:55:00Z",
             "stage_id": "tms",
-            "status": "ok",
-            "status_label": "completado",
+            "status": "completed",
             "requirements": [
-                {"label": "Validación de licencia del conductor", "status": "completed"},
-                {"label": "Validación de documentación de la unidad", "status": "completed"},
-                {"label": "Verificación de datos del viaje (origen/destino)", "status": "completed"},
-                {"label": "Confirmación de disponibilidad de operador", "status": "completed"},
-                {"label": "Registro de unidad en plataforma TMS", "status": "completed"}
-            ],
-            "created_at": "2025-12-12T07:10:00Z",
-            "updated_at": "2025-12-12T07:55:00Z",
-            "completed_at": "2025-12-12T07:55:00Z",
-            "due_at": "2025-12-12T09:30:00Z"
+                { "label": "Validación de licencia del conductor", "status": "fulfilled" },
+                { "label": "Validación de documentación de la unidad", "status": "fulfilled" },
+                { "label": "Verificación de datos del viaje (origen/destino)", "status": "fulfilled" },
+                { "label": "Confirmación de disponibilidad de operador", "status": "fulfilled" },
+                { "label": "Registro de unidad en plataforma TMS", "status": "fulfilled" }
+            ]
         },
-
         {
             "id": 6,
             "trip_id": 3,
@@ -140,23 +99,15 @@ const initialData = {
             "client": "FAST",
             "company": "Egoba",
             "trip_planned_start_at": "2025-12-09T06:00:00Z",
-            "trip_actual_start_at": "2025-12-09T06:22:00Z",
-            "trip_planned_end_at": "2025-12-09T20:00:00Z",
-            "trip_actual_end_at": null,
             "stage_id": "tms",
-            "status": "ok",
-            "status_label": "completado",
+            "status": "completed",
             "requirements": [
-                {"label": "Validación de licencia del conductor", "status": "completed"},
-                {"label": "Validación de documentación de la unidad", "status": "completed"},
-                {"label": "Verificación de datos del viaje (origen/destino)", "status": "completed"},
-                {"label": "Confirmación de disponibilidad de operador", "status": "completed"},
-                {"label": "Registro de unidad en plataforma TMS", "status": "completed"}
-            ],
-            "created_at": "2025-12-09T05:10:00Z",
-            "updated_at": "2025-12-09T05:48:00Z",
-            "completed_at": "2025-12-09T05:48:00Z",
-            "due_at": "2025-12-09T07:00:00Z"
+                { "label": "Validación de licencia del conductor", "status": "fulfilled" },
+                { "label": "Validación de documentación de la unidad", "status": "fulfilled" },
+                { "label": "Verificación de datos del viaje (origen/destino)", "status": "fulfilled" },
+                { "label": "Confirmación de disponibilidad de operador", "status": "fulfilled" },
+                { "label": "Registro de unidad en plataforma TMS", "status": "fulfilled" }
+            ]
         },
         {
             "id": 7,
@@ -165,22 +116,14 @@ const initialData = {
             "client": "FAST",
             "company": "Egoba",
             "trip_planned_start_at": "2025-12-09T06:00:00Z",
-            "trip_actual_start_at": "2025-12-09T06:22:00Z",
-            "trip_planned_end_at": "2025-12-09T20:00:00Z",
-            "trip_actual_end_at": null,
             "stage_id": "mule",
-            "status": "ok",
-            "status_label": "completado",
+            "status": "completed",
             "requirements": [
-                {"label": "Integración con ERP confirmada", "status": "completed"},
-                {"label": "Datos del viaje enviados a MuleSoft", "status": "completed"},
-                {"label": "Synchronización de estatus con sistemas externos", "status": "completed"},
-                {"label": "Validación de estructura del payload", "status": "completed"}
-            ],
-            "created_at": "2025-12-09T10:05:00Z",
-            "updated_at": "2025-12-09T10:42:00Z",
-            "completed_at": "2025-12-09T10:42:00Z",
-            "due_at": "2025-12-09T12:00:00Z"
+                { "label": "Integración con ERP confirmada", "status": "fulfilled" },
+                { "label": "Datos del viaje enviados a MuleSoft", "status": "fulfilled" },
+                { "label": "Synchronización de estatus con sistemas externos", "status": "fulfilled" },
+                { "label": "Validación de estructura del payload", "status": "fulfilled" }
+            ]
         },
         {
             "id": 8,
@@ -189,22 +132,14 @@ const initialData = {
             "client": "FAST",
             "company": "Egoba",
             "trip_planned_start_at": "2025-12-09T06:00:00Z",
-            "trip_actual_start_at": "2025-12-09T06:22:00Z",
-            "trip_planned_end_at": "2025-12-09T20:00:00Z",
-            "trip_actual_end_at": null,
             "stage_id": "sap",
-            "status": "ok",
-            "status_label": "completado",
+            "status": "completed",
             "requirements": [
-                {"label": "Generación de orden de transporte en SAP", "status": "completed"},
-                {"label": "Validación de datos de cliente en SAP", "status": "completed"},
-                {"label": "Confirmación de registro contable", "status": "completed"},
-                {"label": "Creación de documento de salida (si aplica)", "status": "completed"}
-            ],
-            "created_at": "2025-12-10T01:15:00Z",
-            "updated_at": "2025-12-10T02:05:00Z",
-            "completed_at": "2025-12-10T02:05:00Z",
-            "due_at": "2025-12-10T04:00:00Z"
+                { "label": "Generación de orden de transporte en SAP", "status": "fulfilled" },
+                { "label": "Validación de datos de cliente en SAP", "status": "fulfilled" },
+                { "label": "Confirmación de registro contable", "status": "fulfilled" },
+                { "label": "Creación de documento de salida (si aplica)", "status": "fulfilled" }
+            ]
         },
         {
             "id": 9,
@@ -213,24 +148,15 @@ const initialData = {
             "client": "FAST",
             "company": "Egoba",
             "trip_planned_start_at": "2025-12-09T06:00:00Z",
-            "trip_actual_start_at": "2025-12-09T06:22:00Z",
-            "trip_planned_end_at": "2025-12-09T20:00:00Z",
-            "trip_actual_end_at": null,
             "stage_id": "pac",
-            "status": "warning",
-            "status_label": "warning",
+            "status": "in_progress",
             "requirements": [
-                {"label": "Validación de RFC emisor y receptor", "status": "completed"},
-                {"label": "Timbrado preliminar de CFDI en proceso en PAC", "status": "in_progress"},
-                {"label": "Validación de uso CFDI", "status": "completed"},
-                {"label": "Confirmación de estructura XML", "status": "completed"}
-            ],
-            "created_at": "2025-12-10T18:20:00Z",
-            "updated_at": "2025-12-11T03:30:00Z",
-            "completed_at": null,
-            "due_at": "2025-12-11T05:00:00Z"
+                { "label": "Validación de RFC emisor y receptor", "status": "fulfilled" },
+                { "label": "Timbrado preliminar de CFDI en proceso en PAC", "status": "in_progress" },
+                { "label": "Validación de uso CFDI", "status": "fulfilled" },
+                { "label": "Confirmación de estructura XML", "status": "fulfilled" }
+            ]
         },
-
         {
             "id": 10,
             "trip_id": 5,
@@ -238,23 +164,15 @@ const initialData = {
             "client": "Amazon",
             "company": "MyM",
             "trip_planned_start_at": "2025-12-08T08:00:00Z",
-            "trip_actual_start_at": "2025-12-08T08:04:00Z",
-            "trip_planned_end_at": "2025-12-08T22:00:00Z",
-            "trip_actual_end_at": null,
             "stage_id": "tms",
-            "status": "ok",
-            "status_label": "completado",
+            "status": "completed",
             "requirements": [
-                {"label": "Validación de licencia del conductor", "status": "completed"},
-                {"label": "Validación de documentación de la unidad", "status": "completed"},
-                {"label": "Verificación de datos del viaje (origen/destino)", "status": "completed"},
-                {"label": "Confirmación de disponibilidad de operador", "status": "completed"},
-                {"label": "Registro de unidad en plataforma TMS", "status": "completed"}
-            ],
-            "created_at": "2025-12-08T06:20:00Z",
-            "updated_at": "2025-12-08T06:55:00Z",
-            "completed_at": "2025-12-08T06:55:00Z",
-            "due_at": "2025-12-08T09:00:00Z"
+                { "label": "Validación de licencia del conductor", "status": "fulfilled" },
+                { "label": "Validación de documentación de la unidad", "status": "fulfilled" },
+                { "label": "Verificación de datos del viaje (origen/destino)", "status": "fulfilled" },
+                { "label": "Confirmación de disponibilidad de operador", "status": "fulfilled" },
+                { "label": "Registro de unidad en plataforma TMS", "status": "fulfilled" }
+            ]
         },
         {
             "id": 11,
@@ -263,22 +181,14 @@ const initialData = {
             "client": "Amazon",
             "company": "MyM",
             "trip_planned_start_at": "2025-12-08T08:00:00Z",
-            "trip_actual_start_at": "2025-12-08T08:04:00Z",
-            "trip_planned_end_at": "2025-12-08T22:00:00Z",
-            "trip_actual_end_at": null,
             "stage_id": "mule",
-            "status": "ok",
-            "status_label": "completado",
+            "status": "completed",
             "requirements": [
-                {"label": "Integración con ERP confirmada", "status": "completed"},
-                {"label": "Datos del viaje enviados a MuleSoft", "status": "completed"},
-                {"label": "Synchronización de estatus con sistemas externos", "status": "completed"},
-                {"label": "Validación de estructura del payload", "status": "completed"}
-            ],
-            "created_at": "2025-12-08T13:10:00Z",
-            "updated_at": "2025-12-08T14:00:00Z",
-            "completed_at": "2025-12-08T14:00:00Z",
-            "due_at": "2025-12-08T16:00:00Z"
+                { "label": "Integración con ERP confirmada", "status": "fulfilled" },
+                { "label": "Datos del viaje enviados a MuleSoft", "status": "fulfilled" },
+                { "label": "Synchronización de estatus con sistemas externos", "status": "fulfilled" },
+                { "label": "Validación de estructura del payload", "status": "fulfilled" }
+            ]
         },
         {
             "id": 12,
@@ -287,22 +197,14 @@ const initialData = {
             "client": "Amazon",
             "company": "MyM",
             "trip_planned_start_at": "2025-12-08T08:00:00Z",
-            "trip_actual_start_at": "2025-12-08T08:04:00Z",
-            "trip_planned_end_at": "2025-12-08T22:00:00Z",
-            "trip_actual_end_at": null,
             "stage_id": "sap",
-            "status": "ok",
-            "status_label": "completado",
+            "status": "completed",
             "requirements": [
-                {"label": "Generación de orden de transporte en SAP", "status": "completed"},
-                {"label": "Validación de datos de cliente en SAP", "status": "completed"},
-                {"label": "Confirmación de registro contable", "status": "completed"},
-                {"label": "Creación de documento de salida (si aplica)", "status": "completed"}
-            ],
-            "created_at": "2025-12-09T02:30:00Z",
-            "updated_at": "2025-12-09T03:05:00Z",
-            "completed_at": "2025-12-09T03:05:00Z",
-            "due_at": "2025-12-09T06:00:00Z"
+                { "label": "Generación de orden de transporte en SAP", "status": "fulfilled" },
+                { "label": "Validación de datos de cliente en SAP", "status": "fulfilled" },
+                { "label": "Confirmación de registro contable", "status": "fulfilled" },
+                { "label": "Creación de documento de salida (si aplica)", "status": "fulfilled" }
+            ]
         },
         {
             "id": 13,
@@ -311,24 +213,15 @@ const initialData = {
             "client": "Amazon",
             "company": "MyM",
             "trip_planned_start_at": "2025-12-08T08:00:00Z",
-            "trip_actual_start_at": "2025-12-08T08:04:00Z",
-            "trip_planned_end_at": "2025-12-08T22:00:00Z",
-            "trip_actual_end_at": null,
             "stage_id": "pac",
-            "status": "error",
-            "status_label": "error",
+            "status": "blocked",
             "requirements": [
-                {"label": "Validación de RFC emisor y receptor", "status": "completed"},
-                {"label": "Timbrado preliminar de CFDI rechazado por PAC", "status": "error"},
-                {"label": "Validación de uso CFDI", "status": "completed"},
-                {"label": "Confirmación de estructura XML", "status": "completed"}
-            ],
-            "created_at": "2025-12-09T18:10:00Z",
-            "updated_at": "2025-12-10T09:40:00Z",
-            "completed_at": null,
-            "due_at": "2025-12-10T10:30:00Z"
+                { "label": "Validación de RFC emisor y receptor", "status": "fulfilled" },
+                { "label": "Timbrado preliminar de CFDI rechazado por PAC", "status": "failed" },
+                { "label": "Validación de uso CFDI", "status": "fulfilled" },
+                { "label": "Confirmación de estructura XML", "status": "fulfilled" }
+            ]
         },
-
         {
             "id": 14,
             "trip_id": 9,
@@ -336,23 +229,15 @@ const initialData = {
             "client": "Roche",
             "company": "Medistik",
             "trip_planned_start_at": "2025-12-09T15:00:00Z",
-            "trip_actual_start_at": "2025-12-09T15:25:00Z",
-            "trip_planned_end_at": "2025-12-10T01:00:00Z",
-            "trip_actual_end_at": null,
             "stage_id": "tms",
-            "status": "ok",
-            "status_label": "completado",
+            "status": "completed",
             "requirements": [
-                {"label": "Validación de licencia del conductor", "status": "completed"},
-                {"label": "Validación de documentación de la unidad", "status": "completed"},
-                {"label": "Verificación de datos del viaje (origen/destino)", "status": "completed"},
-                {"label": "Confirmación de disponibilidad de operador", "status": "completed"},
-                {"label": "Registro de unidad en plataforma TMS", "status": "completed"}
-            ],
-            "created_at": "2025-12-09T12:05:00Z",
-            "updated_at": "2025-12-09T12:44:00Z",
-            "completed_at": "2025-12-09T12:44:00Z",
-            "due_at": "2025-12-09T16:00:00Z"
+                { "label": "Validación de licencia del conductor", "status": "fulfilled" },
+                { "label": "Validación de documentación de la unidad", "status": "fulfilled" },
+                { "label": "Verificación de datos del viaje (origen/destino)", "status": "fulfilled" },
+                { "label": "Confirmación de disponibilidad de operador", "status": "fulfilled" },
+                { "label": "Registro de unidad en plataforma TMS", "status": "fulfilled" }
+            ]
         },
         {
             "id": 15,
@@ -361,22 +246,14 @@ const initialData = {
             "client": "Roche",
             "company": "Medistik",
             "trip_planned_start_at": "2025-12-09T15:00:00Z",
-            "trip_actual_start_at": "2025-12-09T15:25:00Z",
-            "trip_planned_end_at": "2025-12-10T01:00:00Z",
-            "trip_actual_end_at": null,
             "stage_id": "mule",
-            "status": "ok",
-            "status_label": "completado",
+            "status": "completed",
             "requirements": [
-                {"label": "Integración con ERP confirmada", "status": "completed"},
-                {"label": "Datos del viaje enviados a MuleSoft", "status": "completed"},
-                {"label": "Synchronización de estatus con sistemas externos", "status": "completed"},
-                {"label": "Validación de estructura del payload", "status": "completed"}
-            ],
-            "created_at": "2025-12-10T06:20:00Z",
-            "updated_at": "2025-12-10T07:00:00Z",
-            "completed_at": "2025-12-10T07:00:00Z",
-            "due_at": "2025-12-10T09:00:00Z"
+                { "label": "Integración con ERP confirmada", "status": "fulfilled" },
+                { "label": "Datos del viaje enviados a MuleSoft", "status": "fulfilled" },
+                { "label": "Synchronización de estatus con sistemas externos", "status": "fulfilled" },
+                { "label": "Validación de estructura del payload", "status": "fulfilled" }
+            ]
         },
         {
             "id": 16,
@@ -385,22 +262,14 @@ const initialData = {
             "client": "Roche",
             "company": "Medistik",
             "trip_planned_start_at": "2025-12-09T15:00:00Z",
-            "trip_actual_start_at": "2025-12-09T15:25:00Z",
-            "trip_planned_end_at": "2025-12-10T01:00:00Z",
-            "trip_actual_end_at": null,
             "stage_id": "sap",
-            "status": "ok",
-            "status_label": "completado",
+            "status": "completed",
             "requirements": [
-                {"label": "Generación de orden de transporte en SAP", "status": "completed"},
-                {"label": "Validación de datos de cliente en SAP", "status": "completed"},
-                {"label": "Confirmación de registro contable", "status": "completed"},
-                {"label": "Creación de documento de salida (si aplica)", "status": "completed"}
-            ],
-            "created_at": "2025-12-11T00:45:00Z",
-            "updated_at": "2025-12-11T01:30:00Z",
-            "completed_at": "2025-12-11T01:30:00Z",
-            "due_at": "2025-12-11T03:00:00Z"
+                { "label": "Generación de orden de transporte en SAP", "status": "fulfilled" },
+                { "label": "Validación de datos de cliente en SAP", "status": "fulfilled" },
+                { "label": "Confirmación de registro contable", "status": "fulfilled" },
+                { "label": "Creación de documento de salida (si aplica)", "status": "fulfilled" }
+            ]
         },
         {
             "id": 17,
@@ -409,24 +278,15 @@ const initialData = {
             "client": "Roche",
             "company": "Medistik",
             "trip_planned_start_at": "2025-12-09T15:00:00Z",
-            "trip_actual_start_at": "2025-12-09T15:25:00Z",
-            "trip_planned_end_at": "2025-12-10T01:00:00Z",
-            "trip_actual_end_at": null,
             "stage_id": "pac",
-            "status": "pending",
-            "status_label": "pending",
+            "status": "in_progress",
             "requirements": [
-                {"label": "Validación de RFC emisor y receptor", "status": "pending"},
-                {"label": "Timbrado preliminar de CFDI pendiente en PAC", "status": "pending"},
-                {"label": "Validación de uso CFDI", "status": "completed"},
-                {"label": "Confirmación de estructura XML", "status": "completed"}
-            ],
-            "created_at": "2025-12-12T08:05:00Z",
-            "updated_at": "2025-12-12T08:12:00Z",
-            "completed_at": null,
-            "due_at": "2025-12-12T12:00:00Z"
+                { "label": "Validación de RFC emisor y receptor", "status": "pending" },
+                { "label": "Timbrado preliminar de CFDI pendiente en PAC", "status": "pending" },
+                { "label": "Validación de uso CFDI", "status": "fulfilled" },
+                { "label": "Confirmación de estructura XML", "status": "fulfilled" }
+            ]
         },
-
         {
             "id": 18,
             "trip_id": 6,
@@ -434,23 +294,15 @@ const initialData = {
             "client": "Amazon",
             "company": "MyM",
             "trip_planned_start_at": "2025-12-11T09:00:00Z",
-            "trip_actual_start_at": "2025-12-11T09:00:00Z",
-            "trip_planned_end_at": "2025-12-12T01:00:00Z",
-            "trip_actual_end_at": "2025-12-12T00:35:00Z",
             "stage_id": "tms",
-            "status": "ok",
-            "status_label": "completado",
+            "status": "completed",
             "requirements": [
-                {"label": "Validación de licencia del conductor", "status": "completed"},
-                {"label": "Validación de documentación de la unidad", "status": "completed"},
-                {"label": "Verificación de datos del viaje (origen/destino)", "status": "completed"},
-                {"label": "Confirmación de disponibilidad de operador", "status": "completed"},
-                {"label": "Registro de unidad en plataforma TMS", "status": "completed"}
-            ],
-            "created_at": "2025-12-11T07:55:00Z",
-            "updated_at": "2025-12-11T08:30:00Z",
-            "completed_at": "2025-12-11T08:30:00Z",
-            "due_at": "2025-12-11T10:00:00Z"
+                { "label": "Validación de licencia del conductor", "status": "fulfilled" },
+                { "label": "Validación de documentación de la unidad", "status": "fulfilled" },
+                { "label": "Verificación de datos del viaje (origen/destino)", "status": "fulfilled" },
+                { "label": "Confirmación de disponibilidad de operador", "status": "fulfilled" },
+                { "label": "Registro de unidad en plataforma TMS", "status": "fulfilled" }
+            ]
         },
         {
             "id": 19,
@@ -459,22 +311,14 @@ const initialData = {
             "client": "Amazon",
             "company": "MyM",
             "trip_planned_start_at": "2025-12-11T09:00:00Z",
-            "trip_actual_start_at": "2025-12-11T09:00:00Z",
-            "trip_planned_end_at": "2025-12-12T01:00:00Z",
-            "trip_actual_end_at": "2025-12-12T00:35:00Z",
             "stage_id": "mule",
-            "status": "ok",
-            "status_label": "completado",
+            "status": "completed",
             "requirements": [
-                {"label": "Integración con ERP confirmada", "status": "completed"},
-                {"label": "Datos del viaje enviados a MuleSoft", "status": "completed"},
-                {"label": "Synchronización de estatus con sistemas externos", "status": "completed"},
-                {"label": "Validación de estructura del payload", "status": "completed"}
-            ],
-            "created_at": "2025-12-11T13:20:00Z",
-            "updated_at": "2025-12-11T14:05:00Z",
-            "completed_at": "2025-12-11T14:05:00Z",
-            "due_at": "2025-12-11T16:00:00Z"
+                { "label": "Integración con ERP confirmada", "status": "fulfilled" },
+                { "label": "Datos del viaje enviados a MuleSoft", "status": "fulfilled" },
+                { "label": "Synchronización de estatus con sistemas externos", "status": "fulfilled" },
+                { "label": "Validación de estructura del payload", "status": "fulfilled" }
+            ]
         },
         {
             "id": 20,
@@ -483,22 +327,14 @@ const initialData = {
             "client": "Amazon",
             "company": "MyM",
             "trip_planned_start_at": "2025-12-11T09:00:00Z",
-            "trip_actual_start_at": "2025-12-11T09:00:00Z",
-            "trip_planned_end_at": "2025-12-12T01:00:00Z",
-            "trip_actual_end_at": "2025-12-12T00:35:00Z",
             "stage_id": "sap",
-            "status": "ok",
-            "status_label": "completado",
+            "status": "completed",
             "requirements": [
-                {"label": "Generación de orden de transporte en SAP", "status": "completed"},
-                {"label": "Validación de datos de cliente en SAP", "status": "completed"},
-                {"label": "Confirmación de registro contable", "status": "completed"},
-                {"label": "Creación de documento de salida (si aplica)", "status": "completed"}
-            ],
-            "created_at": "2025-12-11T18:10:00Z",
-            "updated_at": "2025-12-11T18:55:00Z",
-            "completed_at": "2025-12-11T18:55:00Z",
-            "due_at": "2025-12-11T21:00:00Z"
+                { "label": "Generación de orden de transporte en SAP", "status": "fulfilled" },
+                { "label": "Validación de datos de cliente en SAP", "status": "fulfilled" },
+                { "label": "Confirmación de registro contable", "status": "fulfilled" },
+                { "label": "Creación de documento de salida (si aplica)", "status": "fulfilled" }
+            ]
         },
         {
             "id": 21,
@@ -507,22 +343,14 @@ const initialData = {
             "client": "Amazon",
             "company": "MyM",
             "trip_planned_start_at": "2025-12-11T09:00:00Z",
-            "trip_actual_start_at": "2025-12-11T09:00:00Z",
-            "trip_planned_end_at": "2025-12-12T01:00:00Z",
-            "trip_actual_end_at": "2025-12-12T00:35:00Z",
             "stage_id": "pac",
-            "status": "ok",
-            "status_label": "completado",
+            "status": "completed",
             "requirements": [
-                {"label": "Validación de RFC emisor y receptor", "status": "completed"},
-                {"label": "Timbrado preliminar de CFDI", "status": "completed"},
-                {"label": "Validación de uso CFDI", "status": "completed"},
-                {"label": "Confirmación de estructura XML", "status": "completed"}
-            ],
-            "created_at": "2025-12-11T22:05:00Z",
-            "updated_at": "2025-12-11T23:15:00Z",
-            "completed_at": "2025-12-11T23:15:00Z",
-            "due_at": "2025-12-12T00:30:00Z"
+                { "label": "Validación de RFC emisor y receptor", "status": "fulfilled" },
+                { "label": "Timbrado preliminar de CFDI", "status": "fulfilled" },
+                { "label": "Validación de uso CFDI", "status": "fulfilled" },
+                { "label": "Confirmación de estructura XML", "status": "fulfilled" }
+            ]
         },
         {
             "id": 22,
@@ -531,24 +359,15 @@ const initialData = {
             "client": "Amazon",
             "company": "MyM",
             "trip_planned_start_at": "2025-12-11T09:00:00Z",
-            "trip_actual_start_at": "2025-12-11T09:00:00Z",
-            "trip_planned_end_at": "2025-12-12T01:00:00Z",
-            "trip_actual_end_at": "2025-12-12T00:35:00Z",
             "stage_id": "sat",
-            "status": "ok",
-            "status_label": "completado",
+            "status": "completed",
             "requirements": [
-                {"label": "Validación con SAT", "status": "completed"},
-                {"label": "Certificado de timbrado SAT", "status": "completed"},
-                {"label": "Validación de cadena original", "status": "completed"},
-                {"label": "Confirmación de sello digital válido", "status": "completed"}
-            ],
-            "created_at": "2025-12-12T00:05:00Z",
-            "updated_at": "2025-12-12T00:28:00Z",
-            "completed_at": "2025-12-12T00:28:00Z",
-            "due_at": "2025-12-12T01:00:00Z"
+                { "label": "Validación con SAT", "status": "fulfilled" },
+                { "label": "Certificado de timbrado SAT", "status": "fulfilled" },
+                { "label": "Validación de cadena original", "status": "fulfilled" },
+                { "label": "Confirmación de sello digital válido", "status": "fulfilled" }
+            ]
         },
-
         {
             "id": 23,
             "trip_id": 10,
@@ -556,23 +375,15 @@ const initialData = {
             "client": "Roche",
             "company": "Medistik",
             "trip_planned_start_at": "2025-12-08T16:00:00Z",
-            "trip_actual_start_at": "2025-12-08T16:10:00Z",
-            "trip_planned_end_at": "2025-12-09T02:00:00Z",
-            "trip_actual_end_at": "2025-12-09T01:40:00Z",
             "stage_id": "tms",
-            "status": "ok",
-            "status_label": "completado",
+            "status": "completed",
             "requirements": [
-                {"label": "Validación de licencia del conductor", "status": "completed"},
-                {"label": "Validación de documentación de la unidad", "status": "completed"},
-                {"label": "Verificación de datos del viaje (origen/destino)", "status": "completed"},
-                {"label": "Confirmación de disponibilidad de operador", "status": "completed"},
-                {"label": "Registro de unidad en plataforma TMS", "status": "completed"}
-            ],
-            "created_at": "2025-12-08T14:25:00Z",
-            "updated_at": "2025-12-08T14:58:00Z",
-            "completed_at": "2025-12-08T14:58:00Z",
-            "due_at": "2025-12-08T17:00:00Z"
+                { "label": "Validación de licencia del conductor", "status": "fulfilled" },
+                { "label": "Validación de documentación de la unidad", "status": "fulfilled" },
+                { "label": "Verificación de datos del viaje (origen/destino)", "status": "fulfilled" },
+                { "label": "Confirmación de disponibilidad de operador", "status": "fulfilled" },
+                { "label": "Registro de unidad en plataforma TMS", "status": "fulfilled" }
+            ]
         },
         {
             "id": 24,
@@ -581,22 +392,14 @@ const initialData = {
             "client": "Roche",
             "company": "Medistik",
             "trip_planned_start_at": "2025-12-08T16:00:00Z",
-            "trip_actual_start_at": "2025-12-08T16:10:00Z",
-            "trip_planned_end_at": "2025-12-09T02:00:00Z",
-            "trip_actual_end_at": "2025-12-09T01:40:00Z",
             "stage_id": "mule",
-            "status": "ok",
-            "status_label": "completado",
+            "status": "completed",
             "requirements": [
-                {"label": "Integración con ERP confirmada", "status": "completed"},
-                {"label": "Datos del viaje enviados a MuleSoft", "status": "completed"},
-                {"label": "Synchronización de estatus con sistemas externos", "status": "completed"},
-                {"label": "Validación de estructura del payload", "status": "completed"}
-            ],
-            "created_at": "2025-12-08T20:10:00Z",
-            "updated_at": "2025-12-08T21:05:00Z",
-            "completed_at": "2025-12-08T21:05:00Z",
-            "due_at": "2025-12-08T23:00:00Z"
+                { "label": "Integración con ERP confirmada", "status": "fulfilled" },
+                { "label": "Datos del viaje enviados a MuleSoft", "status": "fulfilled" },
+                { "label": "Synchronización de estatus con sistemas externos", "status": "fulfilled" },
+                { "label": "Validación de estructura del payload", "status": "fulfilled" }
+            ]
         },
         {
             "id": 25,
@@ -605,22 +408,14 @@ const initialData = {
             "client": "Roche",
             "company": "Medistik",
             "trip_planned_start_at": "2025-12-08T16:00:00Z",
-            "trip_actual_start_at": "2025-12-08T16:10:00Z",
-            "trip_planned_end_at": "2025-12-09T02:00:00Z",
-            "trip_actual_end_at": "2025-12-09T01:40:00Z",
             "stage_id": "sap",
-            "status": "ok",
-            "status_label": "completado",
+            "status": "completed",
             "requirements": [
-                {"label": "Generación de orden de transporte en SAP", "status": "completed"},
-                {"label": "Validación de datos de cliente en SAP", "status": "completed"},
-                {"label": "Confirmación de registro contable", "status": "completed"},
-                {"label": "Creación de documento de salida (si aplica)", "status": "completed"}
-            ],
-            "created_at": "2025-12-09T00:40:00Z",
-            "updated_at": "2025-12-09T01:25:00Z",
-            "completed_at": "2025-12-09T01:25:00Z",
-            "due_at": "2025-12-09T03:00:00Z"
+                { "label": "Generación de orden de transporte en SAP", "status": "fulfilled" },
+                { "label": "Validación de datos de cliente en SAP", "status": "fulfilled" },
+                { "label": "Confirmación de registro contable", "status": "fulfilled" },
+                { "label": "Creación de documento de salida (si aplica)", "status": "fulfilled" }
+            ]
         },
         {
             "id": 26,
@@ -629,22 +424,14 @@ const initialData = {
             "client": "Roche",
             "company": "Medistik",
             "trip_planned_start_at": "2025-12-08T16:00:00Z",
-            "trip_actual_start_at": "2025-12-08T16:10:00Z",
-            "trip_planned_end_at": "2025-12-09T02:00:00Z",
-            "trip_actual_end_at": "2025-12-09T01:40:00Z",
             "stage_id": "pac",
-            "status": "ok",
-            "status_label": "completado",
+            "status": "completed",
             "requirements": [
-                {"label": "Validación de RFC emisor y receptor", "status": "completed"},
-                {"label": "Timbrado preliminar de CFDI", "status": "completed"},
-                {"label": "Validación de uso CFDI", "status": "completed"},
-                {"label": "Confirmación de estructura XML", "status": "completed"}
-            ],
-            "created_at": "2025-12-09T09:10:00Z",
-            "updated_at": "2025-12-09T10:20:00Z",
-            "completed_at": "2025-12-09T10:20:00Z",
-            "due_at": "2025-12-09T12:00:00Z"
+                { "label": "Validación de RFC emisor y receptor", "status": "fulfilled" },
+                { "label": "Timbrado preliminar de CFDI", "status": "fulfilled" },
+                { "label": "Validación de uso CFDI", "status": "fulfilled" },
+                { "label": "Confirmación de estructura XML", "status": "fulfilled" }
+            ]
         },
         {
             "id": 27,
@@ -653,28 +440,20 @@ const initialData = {
             "client": "Roche",
             "company": "Medistik",
             "trip_planned_start_at": "2025-12-08T16:00:00Z",
-            "trip_actual_start_at": "2025-12-08T16:10:00Z",
-            "trip_planned_end_at": "2025-12-09T02:00:00Z",
-            "trip_actual_end_at": "2025-12-09T01:40:00Z",
             "stage_id": "sat",
-            "status": "ok",
-            "status_label": "completado",
+            "status": "completed",
             "requirements": [
-                {"label": "Validación con SAT", "status": "completed"},
-                {"label": "Certificado de timbrado SAT", "status": "completed"},
-                {"label": "Validación de cadena original", "status": "completed"},
-                {"label": "Confirmación de sello digital válido", "status": "completed"}
-            ],
-            "created_at": "2025-12-09T14:30:00Z",
-            "updated_at": "2025-12-09T14:58:00Z",
-            "completed_at": "2025-12-09T14:58:00Z",
-            "due_at": "2025-12-09T16:00:00Z"
+                { "label": "Validación con SAT", "status": "fulfilled" },
+                { "label": "Certificado de timbrado SAT", "status": "fulfilled" },
+                { "label": "Validación de cadena original", "status": "fulfilled" },
+                { "label": "Confirmación de sello digital válido", "status": "fulfilled" }
+            ]
         }
     ],
     logs: [
         {
-            "tripId": 1,
-            "tripName": "FST-001",
+            "trip_id": 1,
+            "trip_name": "FST-001",
             "stages": [
                 {
                     "id": "tms",
@@ -692,15 +471,15 @@ const initialData = {
                         }
                     ]
                 },
-                {"id": "mulesoft", "name": "MuleSoft", "events": []},
-                {"id": "sap_prod", "name": "SAP Prod", "events": []},
-                {"id": "pac", "name": "PAC", "events": []},
-                {"id": "sat", "name": "SAT", "events": []}
+                { "id": "mulesoft", "name": "MuleSoft", "events": [] },
+                { "id": "sap_prod", "name": "SAP Prod", "events": [] },
+                { "id": "pac", "name": "PAC", "events": [] },
+                { "id": "sat", "name": "SAT", "events": [] }
             ]
         },
         {
-            "tripId": 2,
-            "tripName": "FST-002",
+            "trip_id": 2,
+            "trip_name": "FST-002",
             "stages": [
                 {
                     "id": "tms",
@@ -718,15 +497,15 @@ const initialData = {
                         }
                     ]
                 },
-                {"id": "mulesoft", "name": "MuleSoft", "events": []},
-                {"id": "sap_prod", "name": "SAP Prod", "events": []},
-                {"id": "pac", "name": "PAC", "events": []},
-                {"id": "sat", "name": "SAT", "events": []}
+                { "id": "mulesoft", "name": "MuleSoft", "events": [] },
+                { "id": "sap_prod", "name": "SAP Prod", "events": [] },
+                { "id": "pac", "name": "PAC", "events": [] },
+                { "id": "sat", "name": "SAT", "events": [] }
             ]
         },
         {
-            "tripId": 3,
-            "tripName": "FST-003",
+            "trip_id": 3,
+            "trip_name": "FST-003",
             "stages": [
                 {
                     "id": "tms",
@@ -797,12 +576,12 @@ const initialData = {
                         }
                     ]
                 },
-                {"id": "sat", "name": "SAT", "events": []}
+                { "id": "sat", "name": "SAT", "events": [] }
             ]
         },
         {
-            "tripId": 4,
-            "tripName": "AZ-101",
+            "trip_id": 4,
+            "trip_name": "AZ-101",
             "stages": [
                 {
                     "id": "tms",
@@ -820,15 +599,15 @@ const initialData = {
                         }
                     ]
                 },
-                {"id": "mulesoft", "name": "MuleSoft", "events": []},
-                {"id": "sap_prod", "name": "SAP Prod", "events": []},
-                {"id": "pac", "name": "PAC", "events": []},
-                {"id": "sat", "name": "SAT", "events": []}
+                { "id": "mulesoft", "name": "MuleSoft", "events": [] },
+                { "id": "sap_prod", "name": "SAP Prod", "events": [] },
+                { "id": "pac", "name": "PAC", "events": [] },
+                { "id": "sat", "name": "SAT", "events": [] }
             ]
         },
         {
-            "tripId": 5,
-            "tripName": "AZ-102",
+            "trip_id": 5,
+            "trip_name": "AZ-102",
             "stages": [
                 {
                     "id": "tms",
@@ -899,12 +678,12 @@ const initialData = {
                         }
                     ]
                 },
-                {"id": "sat", "name": "SAT", "events": []}
+                { "id": "sat", "name": "SAT", "events": [] }
             ]
         },
         {
-            "tripId": 6,
-            "tripName": "AZ-103",
+            "trip_id": 6,
+            "trip_name": "AZ-103",
             "stages": [
                 {
                     "id": "tms",
@@ -994,8 +773,8 @@ const initialData = {
             ]
         },
         {
-            "tripId": 7,
-            "tripName": "ROC-201",
+            "trip_id": 7,
+            "trip_name": "ROC-201",
             "stages": [
                 {
                     "id": "tms",
@@ -1013,15 +792,15 @@ const initialData = {
                         }
                     ]
                 },
-                {"id": "mulesoft", "name": "MuleSoft", "events": []},
-                {"id": "sap_prod", "name": "SAP Prod", "events": []},
-                {"id": "pac", "name": "PAC", "events": []},
-                {"id": "sat", "name": "SAT", "events": []}
+                { "id": "mulesoft", "name": "MuleSoft", "events": [] },
+                { "id": "sap_prod", "name": "SAP Prod", "events": [] },
+                { "id": "pac", "name": "PAC", "events": [] },
+                { "id": "sat", "name": "SAT", "events": [] }
             ]
         },
         {
-            "tripId": 8,
-            "tripName": "ROC-202",
+            "trip_id": 8,
+            "trip_name": "ROC-202",
             "stages": [
                 {
                     "id": "tms",
@@ -1039,15 +818,15 @@ const initialData = {
                         }
                     ]
                 },
-                {"id": "mulesoft", "name": "MuleSoft", "events": []},
-                {"id": "sap_prod", "name": "SAP Prod", "events": []},
-                {"id": "pac", "name": "PAC", "events": []},
-                {"id": "sat", "name": "SAT", "events": []}
+                { "id": "mulesoft", "name": "MuleSoft", "events": [] },
+                { "id": "sap_prod", "name": "SAP Prod", "events": [] },
+                { "id": "pac", "name": "PAC", "events": [] },
+                { "id": "sat", "name": "SAT", "events": [] }
             ]
         },
         {
-            "tripId": 9,
-            "tripName": "ROC-203",
+            "trip_id": 9,
+            "trip_name": "ROC-203",
             "stages": [
                 {
                     "id": "tms",
@@ -1102,13 +881,13 @@ const initialData = {
                         }
                     ]
                 },
-                {"id": "pac", "name": "PAC", "events": []},
-                {"id": "sat", "name": "SAT", "events": []}
+                { "id": "pac", "name": "PAC", "events": [] },
+                { "id": "sat", "name": "SAT", "events": [] }
             ]
         },
         {
-            "tripId": 10,
-            "tripName": "ROC-204",
+            "trip_id": 10,
+            "trip_name": "ROC-204",
             "stages": [
                 {
                     "id": "tms",

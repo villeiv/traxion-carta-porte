@@ -10,7 +10,13 @@ const statusStyles = {
     in_progress:"text-blue-500",
 }
 
-function CartaPorteStageEvent({ date, status, message }){
+interface CartaPorteStageEventProps {
+    date: string;
+    status: "success" | "error" | "in_progress";
+    message: string;
+}
+
+function CartaPorteStageEvent({ date, status, message }: CartaPorteStageEventProps){
     return <div className={cn(styles.container, status==="error"? statusStyles.error: status==="in_progress"? statusStyles.in_progress : "" )}>
         <span className={styles.dateColumn}>{date}</span>
         <span>{message}</span>

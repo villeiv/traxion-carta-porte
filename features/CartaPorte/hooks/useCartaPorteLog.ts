@@ -1,16 +1,17 @@
 import {useState} from "react";
-import mapLogInfo from "@/features/CartaPorte/domain/mapLogInfo";
+import type { TripLogInfoUI, TripLogResponse } from "@/features/CartaPorte/domain/types";
+import { mapTripLogResponseToInfoUI } from "../domain/mappers";
 
-function useCartaPorteLog(logs,){
+function useCartaPorteLog(logs: TripLogResponse[]) {
     const [open, setOpen] = useState(false);
-    const [logInfo, setLogInfo] = useState({});
+    const [logInfo, setLogInfo] = useState<TripLogInfoUI>(() => mapTripLogResponseToInfoUI(undefined));
 
-    function showLog(id){
-        setLogInfo(mapLogInfo(logs.find(log=>log.tripId===id)));
-        setOpen(true)
+    function showLog(id: number) {
+        setLogInfo(mapTripLogResponseToInfoUI(logs.find(log => log.trip_id === id)));
+        setOpen(true);
     }
 
-    return { showLog, open, setOpen, logInfo }
+    return { showLog, open, setOpen, logInfo };
 }
 
 export default useCartaPorteLog;

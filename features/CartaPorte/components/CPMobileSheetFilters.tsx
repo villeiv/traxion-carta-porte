@@ -7,7 +7,7 @@ import {ListFilterPlus} from "lucide-react";
 const styles = {
     mobileWrapper: "w-full justify-between bg-card border rounded-lg p-2 flex gap-2",
     sheetTitle: "hidden",
-    sheetContent: "w-11/12 sm:w-96",
+    sheetContent: "w-11/12 sm:w-96 flex flex-col gap-4",
 }
 
 export default function CPMobileSheetFilters() {
@@ -19,7 +19,7 @@ export default function CPMobileSheetFilters() {
             <SheetTrigger asChild>
                 <Button variant={"outline"}><ListFilterPlus/> Filtros ({filters.size})</Button>
             </SheetTrigger>
-            <SheetContent side="left" className={styles.sheetContent} trapFocus={false}>
+            <SheetContent side="left" className={styles.sheetContent}>
                 <Label>{`Filtros (${filters.size})`}</Label>
                 <CPFilterFormFields/>
                 <SheetClose asChild>

@@ -1,4 +1,5 @@
 import {Separator} from "@traxion-global/design-system/react";
+import type { ReactNode } from "react";
 
 const styles = {
     container: "flex flex-col gap-2.5",
@@ -7,7 +8,12 @@ const styles = {
     separator: "my-2"
 };
 
-function CartaPorteStageEventsWrapper({title, children}){
+interface CartaPorteStageEventsWrapperProps {
+    title: string;
+    children: ReactNode;
+}
+
+function CartaPorteStageEventsWrapper({title, children}: CartaPorteStageEventsWrapperProps){
     return <div className={styles.container}>
         <Separator className={styles.separator} />
         <h3 className={styles.stageTitle}>{title}</h3>

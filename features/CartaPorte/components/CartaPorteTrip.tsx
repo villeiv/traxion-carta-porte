@@ -1,26 +1,31 @@
-import TripDetail from "@/features/CartaPorte/components/TripDetail";
-import TripPill from "@/features/CartaPorte/components/TripPill";
-import StageRequirement from "@/features/CartaPorte/components/StageRequirement";
+import TripDetail from "./TripDetail";
+import TripPill from "./TripPill";
+import StageRequirement from "./StageRequirement";
+import { TripStageUI } from "../domain/types";
 
-export function CartaPorteTrip({trip, onTripClick}) {
+interface CartaPorteTripProps {
+    tripStage: TripStageUI;
+    onTripClick?: (tripId: number | string, action: "log" | "filter") => void;
+}
+
+export function CartaPorteTrip({tripStage, onTripClick}: CartaPorteTripProps) {
     return (
         <TripDetail
-            onLogClick={() => onTripClick?.(trip.tripId, "log")}
+            onLogClick={() => onTripClick?.(tripStage.tripId, "log")}
             trigger={
                 <TripPill
-                    key={"pill-" + trip.tripId}
-                    tripId={trip.tripId}
-                    label={trip.tripName}
-                    date={trip.tripPlannedStartAt}
-                    status={trip.status}
-                    statusLabel={trip.statusLabel}
-                    onPillClick={() => onTripClick?.(trip.tripName, "filter")}
+                    key={"pill-" + tripStage.tripId}
+                    tripId={tripStage.tripId}
+                    label={tripStage.name}
+                    date={tripStage.tripPlannedStartAt}
+                    status={tripStage.status}
+                    onPillClick={() => onTripClick?.(tripStage.name, "filter")}
                 />
             }
         >
-            {trip.requirements.map((requirement, index) => (
+            {tripStage.requirements.map((requirement, index) => (
                 <StageRequirement
-                    key={trip.tripId + "-req-" + index}
+                    key={tripStage.tripId + "-req-" + index}
                     fulfillmentStatus={requirement.status}
                 >
                     {requirement.label}

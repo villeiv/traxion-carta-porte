@@ -1,6 +1,7 @@
 import {useSearchParams} from "next/navigation";
+import type { CartaPorteAlert } from "@/features/CartaPorte/domain/types";
 
-function useCartaPorteAlerts(){
+function useCartaPorteAlerts(): CartaPorteAlert[] {
     const searchParams = useSearchParams();
 
     if(searchParams.get("fake_warning")){

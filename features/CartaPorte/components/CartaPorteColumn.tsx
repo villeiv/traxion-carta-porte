@@ -7,7 +7,12 @@ const styles = {
     content: "p-2 space-y-2",
 };
 
-export function CartaPorteColumn({title, children}) {
+interface CartaPorteColumnProps{
+    title: string;
+    children: React.ReactNode;
+}
+
+export function CartaPorteColumn({title, children}: CartaPorteColumnProps) {
     return <Card className={styles.container}>
         <CardTitle className={styles.header}>
             {title}

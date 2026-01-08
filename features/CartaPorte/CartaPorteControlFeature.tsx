@@ -17,13 +17,17 @@ function CartaPorteControlFeature() {
     const alerts = useCartaPorteAlerts();
     const { showLog, open, setOpen, logInfo } = useCartaPorteLog(initialData.logs);
 
-    function onTripClick(tripId: string, type: "filter" | "log") {
-        switch (type) {
+    function onTripClick(tripId: number | string, action: "filter" | "log") {
+        switch (action) {
             case "filter":
-                updateFilter("id", tripId);
+                updateFilter("id", tripId.toString());
                 break;
             case "log":
-                showLog(tripId)
+                if (tripId && typeof tripId === "number") {
+                    showLog(tripId);
+                }else{
+                    console.error("Trip ID for log action must be a number:", tripId);
+                }
                 break;
         }
     }

@@ -1,7 +1,12 @@
 import {Alert, AlertDescription, AlertTitle} from "@/components/app-ui/Alert";
 import {AlertCircleIcon} from "lucide-react";
+import type { CartaPorteAlert } from "@/features/CartaPorte/domain/types";
 
-function CartaPorteAlerts({alerts}){
+interface CartaPorteAlertsProps {
+    alerts: CartaPorteAlert[];
+}
+
+function CartaPorteAlerts({alerts}: CartaPorteAlertsProps){
 
     const styles = {
         container: "flex flex-col gap-2"

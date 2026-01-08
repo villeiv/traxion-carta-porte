@@ -1,10 +1,13 @@
-function applyCartaPorteFilters(data, filters) {
+import type {CartaPorteResponse} from "@/features/CartaPorte/domain/types";
+import { ReadonlyURLSearchParams } from "next/navigation";
+
+function applyCartaPorteFilters(data: CartaPorteResponse, filters: ReadonlyURLSearchParams): CartaPorteResponse {
 
     //si no hay filtros, fuera
     if (!filters || filters.size === 0) return data;
 
     let filteredData = {...data};
-    let tripStageStatus = data.trip_stage_status;
+    let tripStageStatus = data.trip_stages;
 
     //filtro por id
     const idFilter = filters.get("id");
@@ -55,7 +58,7 @@ function applyCartaPorteFilters(data, filters) {
 
     filteredData = {
         ...filteredData,
-        trip_stage_status: tripStageStatus,
+        trip_stages: tripStageStatus,
     };
 
     return filteredData;

@@ -8,7 +8,7 @@ export function useFilters() {
     const pathname = usePathname();
     const debounceTimersRef = useRef<Record<string, number>>({});
 
-    function updateFilter(key: string, value: string) {
+    function updateFilter(key: string, value: string | null) {
         const params = new URLSearchParams(searchParams.toString());
         if (value) {
             params.set(key, value);

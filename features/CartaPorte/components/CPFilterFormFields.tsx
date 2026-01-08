@@ -5,7 +5,7 @@ import {useEffect, useState} from "react";
 import {cn} from "@traxion-global/design-system";
 
 const styles = {
-    filterWrapper: "flex gap-2 items-center",
+    filterWrapper: "flex gap-2 flex-col sm:flex-row sm:items-center",
 }
 
 export default function CPFilterFormFields() {

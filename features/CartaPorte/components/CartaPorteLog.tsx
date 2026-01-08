@@ -2,13 +2,20 @@ import CartaPorteStageEventsWrapper from "./CartaPorteStageEventsWrapper";
 import CartaPorteNoDataEvent from "./CartaPorteNoDataEvent";
 import CartaPorteStageEvent from "./CartaPorteStageEvent";
 import {Button, Dialog, DialogHeader, DialogContent, DialogDescription, DialogTitle, DialogFooter} from "@traxion-global/design-system/react";
+import type { TripLogInfoUI } from "@/features/CartaPorte/domain/types";
 
 const styles = {
     content:"max-h-[90vh] flex flex-col",
     scrollableContainer:"flex-1 overflow-y-auto px-1"
 };
 
-function CartaPorteLog({ open, setOpen, logInfo}){
+interface CartaPorteLogProps {
+    open: boolean;
+    setOpen: (open: boolean) => void;
+    logInfo: TripLogInfoUI;
+}
+
+function CartaPorteLog({ open, setOpen, logInfo}: CartaPorteLogProps){
     return <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className={styles.content}>
             <DialogHeader>

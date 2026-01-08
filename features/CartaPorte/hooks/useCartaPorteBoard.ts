@@ -1,8 +1,10 @@
 import {useMemo} from "react";
 import applyCartaPorteFilters from "@/features/CartaPorte/domain/applyCartaPorteFilters";
-import mapCartaPorteDataToColumns from "@/features/CartaPorte/domain/mapCartaPorteDataToColumns";
+import type {CartaPorteBoardColumnUI, CartaPorteResponse} from "@/features/CartaPorte/domain/types";
+import { ReadonlyURLSearchParams } from "next/navigation";
+import { mapCartaPorteResponseToBoardColumns } from "@/features/CartaPorte/domain/mappers";
 
-function useCartaPorteBoard(data, filters){
+function useCartaPorteBoard(data: CartaPorteResponse, filters: ReadonlyURLSearchParams): { columns: CartaPorteBoardColumnUI[] } {
     //este hook recibe data y filters y devuelve una filtrada y lista para consumir en CartaPorteBoard
     const filteredData = useMemo(
         () => applyCartaPorteFilters(data, filters),
@@ -10,7 +12,7 @@ function useCartaPorteBoard(data, filters){
     );
 
     const columns = useMemo(
-        () => mapCartaPorteDataToColumns(filteredData),
+        () => mapCartaPorteResponseToBoardColumns(filteredData),
         [filteredData]
     );
 
