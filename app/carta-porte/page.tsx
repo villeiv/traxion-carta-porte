@@ -7,6 +7,7 @@ import { cn } from "@traxion-global/design-system";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent, InlineLoader, Label, Button, Popover, PopoverContent, PopoverTrigger, Calendar } from "@traxion-global/design-system/react";
 import { ArrowDown, ArrowUp, Brain, ChartPie } from "lucide-react";
 import initialData from "@/data";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 export default function CartaPortePage() {
     return (
@@ -107,8 +108,8 @@ function CPDashboardFeature() {
 
 function useCPDashboardFeature() {
     const [currentStatIndex, setCurrentStatIndex] = useState(0);
-    return { 
-        currentStat: initialData.stats[currentStatIndex], 
+    return {
+        currentStat: initialData.stats[currentStatIndex],
         setCurrentStatIndex,
         currentStatIndex
     }
@@ -119,13 +120,24 @@ function CPDControls() {
         container: "grid grid-cols-2 gap-4",
     };
 
+    //this week
+    const [period1, setPeriod1] = useState<DateRange>({ from: new Date("2026-01-05T06:00:00-06:00"), to: new Date("2026-01-11T06:00:00-06:00") });
+    const [period2, setPeriod2] = useState<DateRange>({ from: new Date("2025-12-29T06:00:00-06:00"), to: new Date("2026-01-04T06:00:00-06:00") });
+
     return <div className={styles.container}>
-        <CPDDatePeriodSelector label="Periodo 1:" />
-        <CPDDatePeriodSelector label="Periodo 2:" />
+        <CPDDatePeriodSelector label="Periodo 1:" from={period1.from} to={period1.to} onSelect={setPeriod1} />
+        <CPDDatePeriodSelector label="Periodo 2:" from={period2.from} to={period2.to} onSelect={setPeriod2} />
     </div>;
 }
 
-function CPDDatePeriodSelector({ label }: { label?: string }) {
+interface CPDDatePeriodSelectorProps {
+    label?: string;
+    from?: Date | undefined;
+    to?: Date | undefined;
+    onSelect: (range: DateRange) => void;
+}
+
+function CPDDatePeriodSelector({ label, from, to, onSelect }: CPDDatePeriodSelectorProps) {
 
     const styles = {
         container: "flex justify-between items-center gap-4 flex-wrap",
@@ -133,13 +145,14 @@ function CPDDatePeriodSelector({ label }: { label?: string }) {
         dateInput: "flex-1",
     };
 
-    const [from, setFrom] = useState<Date | undefined>(undefined);
-    const [to, setTo] = useState<Date | undefined>(undefined);
+    /*const [from, setFrom] = useState<Date | undefined>(undefined);
+    const [to, setTo] = useState<Date | undefined>(undefined);*/
     const [open, setOpen] = useState(false);
 
     function onSelectDateRange({ from, to }: DateRange) {
-        setFrom(from);
-        setTo(to);
+        /*setFrom(from);
+        setTo(to);*/
+        onSelect({ from, to });
     }
 
     return <div className={styles.container}>
@@ -215,7 +228,15 @@ function StatsBoxesContainer({ onStatBoxClick, currentBox, boxes }: StatsBoxesCo
     return <div className={styles.container}>
         {
             boxes.map((box, index) => (
-                <StatsBox key={index} value={box.value} variation={box.variation} active={currentBox === index} onStatBoxClick={() => onStatBoxClick(index)} description={box.title} />
+                <StatsBox 
+                    key={index} 
+                    value={box.value} 
+                    variation={box.variation} 
+                    invertVariationMeaning={box.invertVariationMeaning}
+                    active={currentBox === index} 
+                    onStatBoxClick={() => onStatBoxClick(index)} 
+                    description={box.title} 
+                />
             ))
         }
     </div>;
@@ -227,16 +248,17 @@ interface StatsBoxProps {
     active?: boolean;
     onStatBoxClick?: () => void;
     description: string;
+    invertVariationMeaning?: boolean;
 }
 
-function StatsBox({ value, variation, active, onStatBoxClick, description }: StatsBoxProps) {
+function StatsBox({ value, variation, active, onStatBoxClick, description, invertVariationMeaning }: StatsBoxProps) {
     const styles = {
         containerBase: "flex flex-col border p-3 rounded-lg cursor-pointer",
         containerActive: "bg-primary-foreground text-secondary-foreground",
     };
 
     return <div className={cn(styles.containerBase, active && styles.containerActive)} onClick={onStatBoxClick}>
-        <StatsBoxTitle value={value} variation={variation} />
+        <StatsBoxTitle value={value} variation={variation} invertVariationMeaning={invertVariationMeaning} />
         <p>{description}</p>
     </div>;
 }
@@ -244,9 +266,10 @@ function StatsBox({ value, variation, active, onStatBoxClick, description }: Sta
 interface StatsBoxTitleProps {
     value: number;
     variation?: number;
+    invertVariationMeaning?: boolean;
 }
 
-function StatsBoxTitle({ value, variation }: StatsBoxTitleProps) {
+function StatsBoxTitle({ value, variation, invertVariationMeaning }: StatsBoxTitleProps) {
     const styles = {
         container: "flex items-center gap-2",
         value: "font-bold text-2xl",
@@ -254,15 +277,16 @@ function StatsBoxTitle({ value, variation }: StatsBoxTitleProps) {
 
     return <div className={styles.container}>
         <h3 className={styles.value}>{value}</h3>
-        <StatsResultVariation variation={variation} />
+        <StatsResultVariation variation={variation} invertVariationMeaning={invertVariationMeaning} />
     </div>;
 }
 
 interface StatsResultVariationProps {
     variation?: number;
+    invertVariationMeaning?: boolean;
 }
 
-function StatsResultVariation({ variation }: StatsResultVariationProps) {
+function StatsResultVariation({ variation, invertVariationMeaning }: StatsResultVariationProps) {
 
     const styles = {
         container: "flex items-center",
@@ -270,16 +294,18 @@ function StatsResultVariation({ variation }: StatsResultVariationProps) {
         variationText: "font-bold text-base",
     };
 
-    if (!variation || variation === 0) return null;
+    if (variation === undefined || variation === 0) return null;
 
     const isPositive = variation > 0;
-    const colorClass = isPositive ? "text-primary-dark" : "text-red-500";
+    const isImprovement = invertVariationMeaning ? !isPositive : isPositive;
     const Icon = isPositive ? ArrowUp : ArrowDown;
+    const colorClass = isImprovement ? "text-primary-dark" : "text-red-500";
+    const displayValue = Math.abs(variation);
 
     return (
-        <div className={styles.container + " " + colorClass}>
+        <div className={`${styles.container} ${colorClass}`}>
             <Icon className={styles.icon} strokeWidth={3} />
-            <h5 className={styles.variationText}>{variation}</h5>
+            <h5 className={styles.variationText}>{displayValue}</h5>
         </div>
     );
 }
@@ -290,9 +316,11 @@ interface ChartsContainerProps {
 
 function ChartsContainer({ data }: ChartsContainerProps) {
     const styles = {
-        container: "bg-primary",
+        container: "",
     };
-    return <div className={styles.container}>{data[0].name}</div>;
+    return <div className={styles.container}>
+        <LineComparissonChart data={data} />
+    </div>;
 }
 
 function TraxionIntelligenceInsight({ message }: { message: string }) {
@@ -309,4 +337,28 @@ function TraxionIntelligenceInsight({ message }: { message: string }) {
         </div>
         <p>{message}</p>
     </div>;
+}
+
+function LineComparissonChart({ data }: { data: any[] }) {
+    return (
+        <LineChart
+            style={{ width: '100%', maxWidth: '700px', height: '100%', maxHeight: '70vh', aspectRatio: 1.9 }}
+            responsive
+            data={data}
+            margin={{
+                top: 10,
+                right: 10,
+                left: 10,
+                bottom: 10,
+            }}
+        >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis width="auto" />
+            <Tooltip />
+            <Legend />
+            <Line name="Periodo 1" type="monotone" dataKey="p1" strokeWidth={3} stroke="#D0DF00" activeDot={{ r: 8 }} />
+            <Line name="Periodo 2" type="monotone" dataKey="p2" strokeWidth={3} stroke="#63666A" />
+        </LineChart>
+    );
 }

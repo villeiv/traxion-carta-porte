@@ -980,159 +980,67 @@ const initialData = {
     stats: [
         {
             title: "Viajes sin incidencias",
-            value: 12,
-            variation: 2,
-            message: "12 de los 15 viajes (80 %) de esta semana completaron el proceso sin problemas, lo que representa un mejor resultado en comparación con la semana previa, donde hubo incidencias en un 35 % de los viajes.",
+            value: 81,
+            variation: 6,
+            invertVariationMeaning: false,
+            message: "81 viajes del Periodo 1 completaron el proceso sin problemas, lo que representa un mejor resultado en comparación con la semana previa, donde solo el 75 viajes terminaron sin incidencias.",
             data: [
-                {
-                    name: 'Lunes',
-                    p1: 4,
-                    p2: 2
-                },
-                {
-                    name: 'Martes',
-                    p1: 3,
-                    p2: 1
-                },
-                {
-                    name: 'Miércoles',
-                    p1: 2,
-                    p2: 7
-                },
-                {
-                    name: 'Jueves',
-                    p1: 3,
-                    p2: 4
-                },
-                {
-                    name: 'Viernes',
-                    p1: 2,
-                    p2: 5
-                },
-                {
-                    name: 'Sábado',
-                    p1: 2,
-                    p2: 4
-                },
-                {
-                    name: 'Domingo',
-                    p1: 3,
-                    p2: 4
-                }
+                { "name": "Lunes", "p1": 17, "p2": 6 },
+                { "name": "Martes", "p1": 13, "p2": 3 },
+                { "name": "Miércoles", "p1": 9, "p2": 19 },
+                { "name": "Jueves", "p1": 13, "p2": 11 },
+                { "name": "Viernes", "p1": 8, "p2": 14 },
+                { "name": "Sábado", "p1": 8, "p2": 11 },
+                { "name": "Domingo", "p1": 13, "p2": 11 }
             ],
-
         },
         {
             title: "Tiempo promedio por fase",
-            value: 36,
-            variation: -5,
-            message: "El tiempo promedio por fase fue de 32 minutos, menor al registrado la semana pasada. Sin embargo, el sistema PAC presentó un tiempo medio 35 % mayor para completar los procesos.",
+            value: 32,
+            variation: 5,
+            invertVariationMeaning: true,
+            message: "Durante el Periodo 1, el tiempo promedio por fase fue de 32 minutos, 5 minutos más que la semana pasada (27 min). PAC concentró los mayores retrasos: su tiempo promedio fue aproximadamente 55% mayor que el promedio del periodo para completar los procesos.",
             data: [
-                {
-                    name: 'TMS',
-                    p1: 31,
-                    p2: 28
-                },
-                {
-                    name: 'MuleSoft',
-                    p1: 25,
-                    p2: 19
-                },
-                {
-                    name: 'SAP Prod',
-                    p1: 35,
-                    p2: 33
-                },
-                {
-                    name: 'PAC',
-                    p1: 50,
-                    p2: 40
-                },
-                {
-                    name: 'SAT',
-                    p1: 15,
-                    p2: 14
-                }
-            ],
-
+                { "name": "TMS", "p1": 33, "p2": 27 },
+                { "name": "MuleSoft", "p1": 26, "p2": 20 },
+                { "name": "SAP Prod", "p1": 36, "p2": 30 },
+                { "name": "PAC", "p1": 50, "p2": 42 },
+                { "name": "SAT", "p1": 15, "p2": 16 }
+            ]
         },
         {
-            title: "Grafico 3",
-            value: 3,
-            variation: 3,
-            message: "explicación 3",
+            title: "Errores en el sistema",
+            value: 17,
+            variation: -24,
+            invertVariationMeaning: true,
+            message: "Durante el Periodo 1 se registró una reducción significativa de errores frente al Periodo 2. En total, el sistema pasó de 41 errores a 17, lo que representa una mejora clara y sostenida a lo largo de toda la semana, con descensos más notorios entre miércoles y viernes.",
             data: [
-                {
-                    name: 'Lunes',
-                    p1: 4,
-                    p2: 2
-                },
-                {
-                    name: 'Martes',
-                    p1: 3,
-                    p2: 1
-                },
-                {
-                    name: 'Miércoles',
-                    p1: 2,
-                    p2: 7
-                },
-                {
-                    name: 'Jueves',
-                    p1: 3,
-                    p2: 4
-                },
-                {
-                    name: 'Viernes',
-                    p1: 2,
-                    p2: 5
-                },
-                {
-                    name: 'Sábado',
-                    p1: 2,
-                    p2: 4
-                },
-                {
-                    name: 'Domingo',
-                    p1: 3,
-                    p2: 4
-                }
-            ],
-
+                { "name": "Lunes", "p1": 3, "p2": 6 },
+                { "name": "Martes", "p1": 2, "p2": 5 },
+                { "name": "Miércoles", "p1": 4, "p2": 8 },
+                { "name": "Jueves", "p1": 3, "p2": 7 },
+                { "name": "Viernes", "p1": 2, "p2": 6 },
+                { "name": "Sábado", "p1": 1, "p2": 4 },
+                { "name": "Domingo", "p1": 2, "p2": 5 }
+            ]
         },
         {
-            title: "grafico 4",
-            value: 4,
-            variation: -4,
-            message: "Explicaion 4.",
-            data: [
-                {
-                    name: 'TMS',
-                    p1: 31,
-                    p2: 28
-                },
-                {
-                    name: 'MuleSoft',
-                    p1: 25,
-                    p2: 19
-                },
-                {
-                    name: 'SAP Prod',
-                    p1: 35,
-                    p2: 33
-                },
-                {
-                    name: 'PAC',
-                    p1: 50,
-                    p2: 40
-                },
-                {
-                    name: 'SAT',
-                    p1: 15,
-                    p2: 14
-                }
-            ],
-        },
+            "title": "Reintentos en el flujo TMS → SAT",
+            "value": 42,
+            "variation": 18,
+            "invertVariationMeaning": true,
+            "message": "Durante el Periodo 1 se registraron 42 reintentos en el flujo TMS → SAT, 18 más que en el Periodo 2 (24). El incremento es consistente a lo largo de la semana, con picos entre miércoles y jueves, lo que indica mayor fricción operativa y necesidad de reprocesos para completar los viajes en el periodo actual.",
+            "data": [
+                { "name": "Lunes", "p1": 6, "p2": 3 },
+                { "name": "Martes", "p1": 5, "p2": 3 },
+                { "name": "Miércoles", "p1": 8, "p2": 4 },
+                { "name": "Jueves", "p1": 7, "p2": 4 },
+                { "name": "Viernes", "p1": 6, "p2": 4 },
+                { "name": "Sábado", "p1": 5, "p2": 3 },
+                { "name": "Domingo", "p1": 5, "p2": 3 }
+            ]
+        }
+
     ]
 };
 
