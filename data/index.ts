@@ -1,10 +1,10 @@
 const initialData = {
     "stages": [
-        {"id": "tms", "name": "TMS"},
-        {"id": "mule", "name": "MuleSoft"},
-        {"id": "sap", "name": "SAP Prod"},
-        {"id": "pac", "name": "PAC"},
-        {"id": "sat", "name": "SAT"}
+        { "id": "tms", "name": "TMS" },
+        { "id": "mule", "name": "MuleSoft" },
+        { "id": "sap", "name": "SAP Prod" },
+        { "id": "pac", "name": "PAC" },
+        { "id": "sat", "name": "SAT" }
     ],
     "trip_stages": [
         {
@@ -976,6 +976,163 @@ const initialData = {
                 }
             ]
         }
+    ],
+    stats: [
+        {
+            title: "Viajes sin incidencias",
+            value: 12,
+            variation: 2,
+            message: "12 de los 15 viajes (80 %) de esta semana completaron el proceso sin problemas, lo que representa un mejor resultado en comparación con la semana previa, donde hubo incidencias en un 35 % de los viajes.",
+            data: [
+                {
+                    name: 'Lunes',
+                    p1: 4,
+                    p2: 2
+                },
+                {
+                    name: 'Martes',
+                    p1: 3,
+                    p2: 1
+                },
+                {
+                    name: 'Miércoles',
+                    p1: 2,
+                    p2: 7
+                },
+                {
+                    name: 'Jueves',
+                    p1: 3,
+                    p2: 4
+                },
+                {
+                    name: 'Viernes',
+                    p1: 2,
+                    p2: 5
+                },
+                {
+                    name: 'Sábado',
+                    p1: 2,
+                    p2: 4
+                },
+                {
+                    name: 'Domingo',
+                    p1: 3,
+                    p2: 4
+                }
+            ],
+
+        },
+        {
+            title: "Tiempo promedio por fase",
+            value: 36,
+            variation: -5,
+            message: "El tiempo promedio por fase fue de 32 minutos, menor al registrado la semana pasada. Sin embargo, el sistema PAC presentó un tiempo medio 35 % mayor para completar los procesos.",
+            data: [
+                {
+                    name: 'TMS',
+                    p1: 31,
+                    p2: 28
+                },
+                {
+                    name: 'MuleSoft',
+                    p1: 25,
+                    p2: 19
+                },
+                {
+                    name: 'SAP Prod',
+                    p1: 35,
+                    p2: 33
+                },
+                {
+                    name: 'PAC',
+                    p1: 50,
+                    p2: 40
+                },
+                {
+                    name: 'SAT',
+                    p1: 15,
+                    p2: 14
+                }
+            ],
+
+        },
+        {
+            title: "Grafico 3",
+            value: 3,
+            variation: 3,
+            message: "explicación 3",
+            data: [
+                {
+                    name: 'Lunes',
+                    p1: 4,
+                    p2: 2
+                },
+                {
+                    name: 'Martes',
+                    p1: 3,
+                    p2: 1
+                },
+                {
+                    name: 'Miércoles',
+                    p1: 2,
+                    p2: 7
+                },
+                {
+                    name: 'Jueves',
+                    p1: 3,
+                    p2: 4
+                },
+                {
+                    name: 'Viernes',
+                    p1: 2,
+                    p2: 5
+                },
+                {
+                    name: 'Sábado',
+                    p1: 2,
+                    p2: 4
+                },
+                {
+                    name: 'Domingo',
+                    p1: 3,
+                    p2: 4
+                }
+            ],
+
+        },
+        {
+            title: "grafico 4",
+            value: 4,
+            variation: -4,
+            message: "Explicaion 4.",
+            data: [
+                {
+                    name: 'TMS',
+                    p1: 31,
+                    p2: 28
+                },
+                {
+                    name: 'MuleSoft',
+                    p1: 25,
+                    p2: 19
+                },
+                {
+                    name: 'SAP Prod',
+                    p1: 35,
+                    p2: 33
+                },
+                {
+                    name: 'PAC',
+                    p1: 50,
+                    p2: 40
+                },
+                {
+                    name: 'SAT',
+                    p1: 15,
+                    p2: 14
+                }
+            ],
+        },
     ]
 };
 

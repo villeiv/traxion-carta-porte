@@ -1,8 +1,8 @@
 import {SelectFilter} from "@/components/app-ui/SelectFilter";
-import {Calendar, Label, Input, Button, Popover, PopoverContent, PopoverTrigger} from "@traxion-global/design-system/react";
+import { Label, Input } from "@traxion-global/design-system/react";
 import {useFilters} from "@/hooks/useFilters";
 import {useEffect, useState} from "react";
-import {cn} from "@traxion-global/design-system";
+import { PopOverDateRangePicker } from "@/app/carta-porte/page";
 
 const styles = {
     filterWrapper: "flex gap-2 flex-col sm:flex-row sm:items-center",
@@ -126,7 +126,8 @@ function CPDateFilter() {
     return (
         <div className={styles.filterWrapper}>
             <Label htmlFor={"dates"}>Fecha:</Label>
-            <Popover open={open} onOpenChange={setOpen}>
+            <PopOverDateRangePicker from={filters.get("dates") ? new Date(filters.get("dates").split(",")[0]) : undefined} to={filters.get("dates") ? new Date(filters.get("dates").split(",")[1]) : undefined} onSelect={onSelect} open={open} onOpenChange={setOpen} />
+            {/*<Popover open={open} onOpenChange={setOpen}>
                 <PopoverTrigger asChild>
                     <Button
                         id="dates"
@@ -158,7 +159,7 @@ function CPDateFilter() {
                         <Button size={"sm"} variant={"outline"} onClick={_=>setOpen(false)}>Cerrar</Button>
                     </div>
                 </PopoverContent>
-            </Popover>
+            </Popover>*/}
         </div>
     );
 }
