@@ -89,18 +89,29 @@ function CPDashboardFeature() {
         rightColumn: "flex-1",
     };
 
+    const { currentStat, setCurrentStatIndex, currentStatIndex } = useCPDashboardFeature();
+
     return <div className={styles.container}>
         {/* left */}
         <div className={styles.leftColumn}>
             <CPDControls />
-            <StatsBoxesContainer />
-            <TraxionIntelligenceInsight />
+            <StatsBoxesContainer onStatBoxClick={setCurrentStatIndex} currentBox={currentStatIndex} boxes={initialData.stats} />
+            <TraxionIntelligenceInsight message={currentStat.message} />
         </div>
         {/* right */}
         <div className={styles.rightColumn}>
-            <ChartsContainer />
+            <ChartsContainer data={currentStat.data} />
         </div>
     </div>
+}
+
+function useCPDashboardFeature() {
+    const [currentStatIndex, setCurrentStatIndex] = useState(0);
+    return { 
+        currentStat: initialData.stats[currentStatIndex], 
+        setCurrentStatIndex,
+        currentStatIndex
+    }
 }
 
 function CPDControls() {
@@ -190,16 +201,23 @@ export function PopOverDateRangePicker({ from, to, onSelect, open, onOpenChange,
     );
 }
 
-function StatsBoxesContainer() {
+interface StatsBoxesContainerProps {
+    onStatBoxClick: (index: number) => void;
+    currentBox: number;
+    boxes: any[];
+}
+
+function StatsBoxesContainer({ onStatBoxClick, currentBox, boxes }: StatsBoxesContainerProps) {
     const styles = {
         container: "grid grid-cols-2 gap-4 ",
     };
 
     return <div className={styles.container}>
-        <StatsBox value={2} variation={15} active={true} />
-        <StatsBox value={2} variation={15} />
-        <StatsBox value={5} variation={-5} />
-        <StatsBox value={10} />
+        {
+            boxes.map((box, index) => (
+                <StatsBox key={index} value={box.value} variation={box.variation} active={currentBox === index} onStatBoxClick={() => onStatBoxClick(index)} description={box.title} />
+            ))
+        }
     </div>;
 }
 
@@ -207,17 +225,19 @@ interface StatsBoxProps {
     value: number;
     variation?: number;
     active?: boolean;
+    onStatBoxClick?: () => void;
+    description: string;
 }
 
-function StatsBox({ value, variation, active }: StatsBoxProps) {
+function StatsBox({ value, variation, active, onStatBoxClick, description }: StatsBoxProps) {
     const styles = {
-        containerBase: "flex flex-col border p-3 rounded-lg",
+        containerBase: "flex flex-col border p-3 rounded-lg cursor-pointer",
         containerActive: "bg-primary-foreground text-secondary-foreground",
     };
 
-    return <div className={cn(styles.containerBase, active && styles.containerActive)}>
+    return <div className={cn(styles.containerBase, active && styles.containerActive)} onClick={onStatBoxClick}>
         <StatsBoxTitle value={value} variation={variation} />
-        <p>Detalle de la estadística</p>
+        <p>{description}</p>
     </div>;
 }
 
@@ -264,14 +284,18 @@ function StatsResultVariation({ variation }: StatsResultVariationProps) {
     );
 }
 
-function ChartsContainer() {
+interface ChartsContainerProps {
+    data: any;
+}
+
+function ChartsContainer({ data }: ChartsContainerProps) {
     const styles = {
         container: "bg-primary",
     };
-    return <div className={styles.container}>s</div>;
+    return <div className={styles.container}>{data[0].name}</div>;
 }
 
-function TraxionIntelligenceInsight() {
+function TraxionIntelligenceInsight({ message }: { message: string }) {
     const styles = {
         container: "flex flex-col radius-md border bg-muted rounded-md p-4 text-muted-foreground gap-2 text-sm",
         header: "flex items-center gap-2",
@@ -283,6 +307,6 @@ function TraxionIntelligenceInsight() {
             <Brain />
             <h4 className={styles.title}>Traxion Intelligence</h4>
         </div>
-        <p>12 de los 15 viajes (80 %) de esta semana completaron el proceso sin problemas, lo que representa un mejor resultado en comparación con la semana previa, donde hubo incidencias en un 35 % de los viajes.</p>
+        <p>{message}</p>
     </div>;
 }
