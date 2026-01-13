@@ -983,16 +983,20 @@ const initialData = {
             value: 81,
             variation: 6,
             invertVariationMeaning: false,
-            message: "81 viajes del Periodo 1 completaron el proceso sin problemas, lo que representa un mejor resultado en comparación con la semana previa, donde solo el 75 viajes terminaron sin incidencias.",
+            message: "81 viajes del Periodo 1 completaron el proceso sin problemas, lo que representa un mejor resultado en comparación con la semana previa, donde solo el 75 viajes terminaron sin incidencias. Para los siguientes 3 días se estima un comportamiento similar, con una proyección en el rango de 10 a 15 viajes sin incidencias por día.",
             data: [
-                { "name": "Lunes", "p1": 17, "p2": 6 },
-                { "name": "Martes", "p1": 13, "p2": 3 },
-                { "name": "Miércoles", "p1": 9, "p2": 19 },
-                { "name": "Jueves", "p1": 13, "p2": 11 },
-                { "name": "Viernes", "p1": 8, "p2": 14 },
-                { "name": "Sábado", "p1": 8, "p2": 11 },
-                { "name": "Domingo", "p1": 13, "p2": 11 }
-            ],
+                { "name": "Lunes", "p1": 17, "p2": 6, "forecast": null, "forecastLower": null, "forecastUpper": null },
+                { "name": "Martes", "p1": 13, "p2": 3, "forecast": null, "forecastLower": null, "forecastUpper": null },
+                { "name": "Miércoles", "p1": 9, "p2": 19, "forecast": null, "forecastLower": null, "forecastUpper": null },
+                { "name": "Jueves", "p1": 13, "p2": 11, "forecast": null, "forecastLower": null, "forecastUpper": null },
+                { "name": "Viernes", "p1": 8, "p2": 14, "forecast": null, "forecastLower": null, "forecastUpper": null },
+                { "name": "Sábado", "p1": 8, "p2": 11, "forecast": null, "forecastLower": null, "forecastUpper": null },
+                { "name": "Domingo", "p1": 13, "p2": 11, "forecast": 13, "forecastLower": 13, "forecastUpper": 13 },
+
+                { "name": "+1 día", "p1": null, "p2": null, "forecast": 14, "forecastLower": 12, "forecastUpper": 16 },
+                { "name": "+2 días", "p1": null, "p2": null, "forecast": 13, "forecastLower": 9, "forecastUpper": 17 },
+                { "name": "+3 días", "p1": null, "p2": null, "forecast": 12, "forecastLower": 10, "forecastUpper": 14 }
+            ]
         },
         {
             title: "Tiempo promedio por fase",
@@ -1015,13 +1019,17 @@ const initialData = {
             invertVariationMeaning: true,
             message: "Durante el Periodo 1 se registró una reducción significativa de errores frente al Periodo 2. En total, el sistema pasó de 41 errores a 17, lo que representa una mejora clara y sostenida a lo largo de toda la semana, con descensos más notorios entre miércoles y viernes.",
             data: [
-                { "name": "Lunes", "p1": 3, "p2": 6 },
-                { "name": "Martes", "p1": 2, "p2": 5 },
-                { "name": "Miércoles", "p1": 4, "p2": 8 },
-                { "name": "Jueves", "p1": 3, "p2": 7 },
-                { "name": "Viernes", "p1": 2, "p2": 6 },
-                { "name": "Sábado", "p1": 1, "p2": 4 },
-                { "name": "Domingo", "p1": 2, "p2": 5 }
+                { "name": "Lunes", "p1": 3, "p2": 6, "forecast": null, "forecastLower": null, "forecastUpper": null },
+                { "name": "Martes", "p1": 2, "p2": 5, "forecast": null, "forecastLower": null, "forecastUpper": null },
+                { "name": "Miércoles", "p1": 4, "p2": 8, "forecast": null, "forecastLower": null, "forecastUpper": null },
+                { "name": "Jueves", "p1": 3, "p2": 7, "forecast": null, "forecastLower": null, "forecastUpper": null },
+                { "name": "Viernes", "p1": 2, "p2": 6, "forecast": null, "forecastLower": null, "forecastUpper": null },
+                { "name": "Sábado", "p1": 1, "p2": 4, "forecast": null, "forecastLower": null, "forecastUpper": null },
+                { "name": "Domingo", "p1": 2, "p2": 5, "forecast": 2, "forecastLower": 2, "forecastUpper": 2 },
+
+                { "name": "+1 día", "p1": null, "p2": null, "forecast": 2, "forecastLower": 1, "forecastUpper": 5 },
+                { "name": "+2 días", "p1": null, "p2": null, "forecast": 3, "forecastLower": 2, "forecastUpper": 6 },
+                { "name": "+3 días", "p1": null, "p2": null, "forecast": 3, "forecastLower": 2, "forecastUpper": 6 }
             ]
         },
         {
@@ -1031,16 +1039,19 @@ const initialData = {
             "invertVariationMeaning": true,
             "message": "Durante el Periodo 1 se registraron 42 reintentos en el flujo TMS → SAT, 18 más que en el Periodo 2 (24). El incremento es consistente a lo largo de la semana, con picos entre miércoles y jueves, lo que indica mayor fricción operativa y necesidad de reprocesos para completar los viajes en el periodo actual.",
             "data": [
-                { "name": "Lunes", "p1": 6, "p2": 3 },
-                { "name": "Martes", "p1": 5, "p2": 3 },
-                { "name": "Miércoles", "p1": 8, "p2": 4 },
-                { "name": "Jueves", "p1": 7, "p2": 4 },
-                { "name": "Viernes", "p1": 6, "p2": 4 },
-                { "name": "Sábado", "p1": 5, "p2": 3 },
-                { "name": "Domingo", "p1": 5, "p2": 3 }
+                { "name": "Lunes", "p1": 6, "p2": 3, "forecast": null, "forecastLower": null, "forecastUpper": null },
+                { "name": "Martes", "p1": 5, "p2": 3, "forecast": null, "forecastLower": null, "forecastUpper": null },
+                { "name": "Miércoles", "p1": 8, "p2": 4, "forecast": null, "forecastLower": null, "forecastUpper": null },
+                { "name": "Jueves", "p1": 7, "p2": 4, "forecast": null, "forecastLower": null, "forecastUpper": null },
+                { "name": "Viernes", "p1": 6, "p2": 4, "forecast": null, "forecastLower": null, "forecastUpper": null },
+                { "name": "Sábado", "p1": 5, "p2": 3, "forecast": null, "forecastLower": null, "forecastUpper": null },
+                { "name": "Domingo", "p1": 5, "p2": 3, "forecast": 5, "forecastLower": 5, "forecastUpper": 5 },
+
+                { "name": "+1 día", "p1": null, "p2": null, "forecast": 5, "forecastLower": 4, "forecastUpper": 6 },
+                { "name": "+2 días", "p1": null, "p2": null, "forecast": 4, "forecastLower": 3, "forecastUpper": 5 },
+                { "name": "+3 días", "p1": null, "p2": null, "forecast": 4, "forecastLower": 3, "forecastUpper": 5 }
             ]
         }
-
     ]
 };
 

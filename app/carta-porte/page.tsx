@@ -7,7 +7,8 @@ import { cn } from "@traxion-global/design-system";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent, InlineLoader, Label, Button, Popover, PopoverContent, PopoverTrigger, Calendar } from "@traxion-global/design-system/react";
 import { ArrowDown, ArrowUp, Brain, ChartPie } from "lucide-react";
 import initialData from "@/data";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, Area, ComposedChart, DefaultTooltipContent } from 'recharts';
+import useBreakpoint from "@/hooks/useBreakpoint";
 
 export default function CartaPortePage() {
     return (
@@ -19,23 +20,19 @@ export default function CartaPortePage() {
             ]} />
             {/* Main feature */}
             <Suspense fallback={<InlineLoader />}>
-                <CartaPorteDashboard />
+                <CartaPorteAccordion />
                 <CartaPorteControlFeature />
             </Suspense>
         </>
     );
 }
 
-function CartaPorteDashboard() {
-    return <CartaPorteAccordion />;
-}
-
 function CartaPorteAccordion() {
     const styles = {
-        container: "rounded-lg border px-5 py-2 mb-4",
-        openedContainer: "pt-4",
+        container: "rounded-lg border px-2 sm:px-4 lg:px-5 py-2 mb-4",
+        openedContainer: "pt-4 px-4",
         accordionItem: "border-b-0",
-        trigger: "p-2 no-underline hover:no-underline",
+        trigger: "p-0 sm:p-2 no-underline hover:no-underline",
         content: "pt-4",
     };
 
@@ -74,7 +71,7 @@ function CPDashboardHeader() {
 function CPDHeaderTitle() {
     const styles = {
         container: "flex items-center gap-2",
-        title: "font-bold text-base",
+        title: "font-bold text-sm sm:text-base",
     };
 
     return <div className={styles.container}>
@@ -85,21 +82,21 @@ function CPDHeaderTitle() {
 
 function CPDashboardFeature() {
     const styles = {
-        container: "flex gap-6",
-        leftColumn: "flex flex-col flex-none w-[45%] gap-4",
-        rightColumn: "flex-1",
+        container: "flex flex-col lg:flex-row gap-6",
+        leftColumn: "flex flex-col w-full lg:flex-none lg:w-[45%] gap-4",
+        rightColumn: "flex-1 w-full",
     };
 
     const { currentStat, setCurrentStatIndex, currentStatIndex } = useCPDashboardFeature();
 
     return <div className={styles.container}>
-        {/* left */}
+        {/* left top */}
         <div className={styles.leftColumn}>
             <CPDControls />
             <StatsBoxesContainer onStatBoxClick={setCurrentStatIndex} currentBox={currentStatIndex} boxes={initialData.stats} />
             <TraxionIntelligenceInsight message={currentStat.message} />
         </div>
-        {/* right */}
+        {/* right bottom */}
         <div className={styles.rightColumn}>
             <ChartsContainer data={currentStat.data} />
         </div>
@@ -117,7 +114,7 @@ function useCPDashboardFeature() {
 
 function CPDControls() {
     const styles = {
-        container: "grid grid-cols-2 gap-4",
+        container: "grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4",
     };
 
     //this week
@@ -140,18 +137,14 @@ interface CPDDatePeriodSelectorProps {
 function CPDDatePeriodSelector({ label, from, to, onSelect }: CPDDatePeriodSelectorProps) {
 
     const styles = {
-        container: "flex justify-between items-center gap-4 flex-wrap",
+        container: "flex sm:justify-between items-center gap-2 sm:gap-4 sm:flex-wrap",
         label: "font-bold text-sm flex-none",
-        dateInput: "flex-1",
+        dateInput: "w-full sm:flex-1",
     };
 
-    /*const [from, setFrom] = useState<Date | undefined>(undefined);
-    const [to, setTo] = useState<Date | undefined>(undefined);*/
     const [open, setOpen] = useState(false);
 
     function onSelectDateRange({ from, to }: DateRange) {
-        /*setFrom(from);
-        setTo(to);*/
         onSelect({ from, to });
     }
 
@@ -228,14 +221,14 @@ function StatsBoxesContainer({ onStatBoxClick, currentBox, boxes }: StatsBoxesCo
     return <div className={styles.container}>
         {
             boxes.map((box, index) => (
-                <StatsBox 
-                    key={index} 
-                    value={box.value} 
-                    variation={box.variation} 
+                <StatsBox
+                    key={index}
+                    value={box.value}
+                    variation={box.variation}
                     invertVariationMeaning={box.invertVariationMeaning}
-                    active={currentBox === index} 
-                    onStatBoxClick={() => onStatBoxClick(index)} 
-                    description={box.title} 
+                    active={currentBox === index}
+                    onStatBoxClick={() => onStatBoxClick(index)}
+                    description={box.title}
                 />
             ))
         }
@@ -340,25 +333,72 @@ function TraxionIntelligenceInsight({ message }: { message: string }) {
 }
 
 function LineComparissonChart({ data }: { data: any[] }) {
+
+    const isMobile = useBreakpoint("sm") === false;
+    const chartMargins = isMobile
+        ? { top: 0, right: 0, left: 0, bottom: 0 }
+        : { top: 10, right: 10, left: 10, bottom: 10 };
+    const hasForecast = data.some(d => d.forecast !== null && d.forecast !== undefined);
+
     return (
-        <LineChart
-            style={{ width: '100%', maxWidth: '700px', height: '100%', maxHeight: '70vh', aspectRatio: 1.9 }}
+        <ComposedChart
+            style={{ width: '100%', /*maxWidth: '700px',*/ height: '100%', /*maxHeight: '70vh',*/ aspectRatio: 1.9 }}
             responsive
             data={data}
-            margin={{
-                top: 10,
-                right: 10,
-                left: 10,
-                bottom: 10,
-            }}
+            margin={chartMargins}
         >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
             <YAxis width="auto" />
-            <Tooltip />
+            <Tooltip
+                content={({ payload, ...rest }) => {
+                    const filtered = payload?.filter(
+                        (item) =>
+                            item.dataKey === "forecast" ||
+                            item.dataKey === "p1" ||
+                            item.dataKey === "p2"
+                    );
+
+                    return <DefaultTooltipContent {...rest} payload={filtered} />;
+                }}
+            />
             <Legend />
+            {
+                hasForecast && (
+                    <>
+                        <Area
+                            type="monotone"
+                            dataKey="forecastLower"
+                            stackId="ci"
+                            stroke="none"
+                            fill="transparent"
+                            legendType="none"
+                        />
+
+                        <Area
+                            type="monotone"
+                            dataKey={(d: any) =>
+                                d.forecastUpper != null && d.forecastLower != null
+                                    ? d.forecastUpper - d.forecastLower
+                                    : null
+                            }
+                            stackId="ci"
+                            stroke="none"
+                            fillOpacity={0.15}
+                            fill="#2B7FFF"
+                            legendType="none"
+                        />
+
+                        <ReferenceLine x="Domingo" strokeWidth={3} stroke="#2B7FFF" strokeOpacity={0.2} />
+                        <Line name="Proyección" type="monotone" dataKey="forecast" strokeWidth={2} strokeDasharray="6 6" dot={false} stroke="#2B7FFF" />
+                    </>
+                )
+            }
+
             <Line name="Periodo 1" type="monotone" dataKey="p1" strokeWidth={3} stroke="#D0DF00" activeDot={{ r: 8 }} />
             <Line name="Periodo 2" type="monotone" dataKey="p2" strokeWidth={3} stroke="#63666A" />
-        </LineChart>
+
+
+        </ComposedChart>
     );
 }
